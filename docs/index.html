@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mauro Centurión | Ingeniero Ambiental</title>
+<meta name="description" content="Ingeniero Ambiental con maestría. Supervisión, auditoría y fiscalización ambiental, formulación e implementación de obligaciones ambientales en el Perú.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Mauro Centurión Zamora · Ingeniero Ambiental">
+<meta property="og:description" content="Supervisión, auditoría y fiscalización ambiental; formulación e implementación de obligaciones ambientales.">
+<meta property="og:url" content="https://giancen35-sketch.github.io/maurocenturion/">
+<meta property="og:image" content="https://giancen35-sketch.github.io/maurocenturion/img/mauro.jpg">
+<link rel="canonical" href="https://giancen35-sketch.github.io/maurocenturion/">
+<meta name="theme-color" content="#077eb2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23077eb2'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='28' fill='white' text-anchor='middle'%3EMC%3C/text%3E%3C/svg%3E">
+<style>
+@font-face{font-family:"Open Sans";font-weight:600;font-display:swap;src:url(fuentes/open-sans-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Open Sans";font-weight:700;font-display:swap;src:url(fuentes/open-sans-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Poppins";font-weight:300;font-display:swap;src:url(fuentes/poppins-light.woff2) format("woff2")}
+@font-face{font-family:"Poppins";font-weight:400;font-display:swap;src:url(fuentes/poppins-regular.woff2) format("woff2")}
+@font-face{font-family:"Poppins";font-weight:500;font-display:swap;src:url(fuentes/poppins-medium.woff2) format("woff2")}
+
+/* Paleta del manual de marca CEORZA; --mute y el modo oscuro son adiciones para pantalla */
+:root{
+  --azul:#077eb2;--turquesa:#00b1aa;--tablero:#05374f;
+  --bg:#ffffff;--banda:#f3f5f5;--panel:#ffffff;--ink:#3c3c3b;--mute:#5d6566;--line:#e1e5e6;
+  --titulo:var(--azul);--hero:var(--azul);--escena2:var(--tablero);--chip:#eef3f4;--sel:var(--azul);--sel-ink:#fff;
+  --alto:100vh;
+}
+@supports (height:100svh){:root{--alto:100svh}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#06283a;--banda:#082f44;--panel:#0b3a52;--ink:#e6eff2;--mute:#a7bac2;--line:#17495f;
+  --titulo:#2cc9c1;--hero:var(--tablero);--escena2:#031b27;--chip:#0f4560;--sel:#00b1aa;--sel-ink:#04202e}}
+:root[data-theme="dark"]{
+  --bg:#06283a;--banda:#082f44;--panel:#0b3a52;--ink:#e6eff2;--mute:#a7bac2;--line:#17495f;
+  --titulo:#2cc9c1;--hero:var(--tablero);--escena2:#031b27;--chip:#0f4560;--sel:#00b1aa;--sel-ink:#04202e}
+
+*{box-sizing:border-box}
+html{scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15.5px/1.65 "Poppins",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.cifra b,.cifras-tit,.top strong,.grande{font-family:"Open Sans",system-ui,sans-serif}
+a{color:var(--titulo)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+.etq{font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:500}
+
+/* Cabecera fija con barra de avance */
+.top{position:fixed;top:0;left:0;right:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;height:56px}
+.top strong{color:var(--titulo);font-weight:700;white-space:nowrap}
+.top nav{flex:1;display:flex;gap:18px;overflow-x:auto;scrollbar-width:none;font-size:14px}
+.top nav::-webkit-scrollbar{display:none}
+.top nav a{color:var(--mute);text-decoration:none;white-space:nowrap;padding:4px 0}
+.top nav a:hover,.top nav a.aqui{color:var(--titulo)}
+.tema{background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;width:34px;height:34px;cursor:pointer;flex:none}
+.avance{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--turquesa);transform-origin:left;transform:scaleX(0)}
+
+/* Escenas fijas: la pantalla se queda y el contenido cambia al deslizar */
+.escena{position:relative;height:calc(var(--n) * var(--alto))}
+.escenario{position:sticky;top:0;height:var(--alto);overflow:hidden;padding-top:56px;transition:background-color .7s ease}
+.paso{position:absolute;inset:56px 0 0;display:flex;align-items:center;opacity:0;visibility:hidden;transform:translateY(48px);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.7,.2,1),visibility 0s .7s}
+.paso.activo{opacity:1;visibility:visible;transform:none;transition:opacity .6s ease,transform .7s cubic-bezier(.2,.7,.2,1),visibility 0s}
+.paso.pasado{transform:translateY(-48px)}
+.paso>.wrap{width:100%}
+.puntos{position:absolute;right:18px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:2}
+.puntos button{width:10px;height:10px;border-radius:50%;border:1.5px solid currentColor;background:none;padding:0;cursor:pointer;opacity:.6;color:inherit}
+.puntos button.activo{background:currentColor;opacity:1}
+.pista{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.8;display:flex;flex-direction:column;align-items:center;gap:4px;transition:opacity .4s}
+.pista:after{content:"";width:1.5px;height:26px;background:currentColor;animation:baja 1.6s ease-in-out infinite;transform-origin:top}
+@keyframes baja{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* Escena de inicio */
+#inicio .escenario{color:#fff;background:var(--hero)}
+#inicio .escenario.e1{background:var(--escena2)}
+.portada{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+.portada h1{font-size:clamp(32px,5.4vw,56px);line-height:1.06;margin:10px 0 18px;font-weight:700;letter-spacing:-.015em}
+.portada .lema{font-weight:300;font-size:18px;line-height:1.6;max-width:620px;margin:0 0 22px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.meta span{border:1px solid rgba(255,255,255,.45);border-radius:4px;padding:2px 10px;font-size:13px}
+.foto{width:250px;height:250px;border-radius:50%;object-fit:cover;border:5px solid var(--turquesa);background:#3a3d40}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;padding:10px 18px;border-radius:8px;font:600 14.5px "Open Sans",sans-serif;text-decoration:none;border:1.5px solid #fff;color:#fff;background:none;cursor:pointer}
+.btn.lleno{background:#fff;color:var(--azul)}
+.btn:hover{filter:brightness(1.08)}
+.cifras-tit{font-size:clamp(24px,3.4vw,34px);margin:0 0 28px;font-weight:700}
+.cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(255,255,255,.18)}
+.cifra{padding:24px 20px 24px 0;border-bottom:1px solid rgba(255,255,255,.18)}
+.cifra b{display:block;font-size:clamp(34px,5vw,54px);line-height:1;color:var(--turquesa);font-weight:700;margin-bottom:8px}
+.cifra span{font-size:14px;opacity:.88;line-height:1.4;display:block;max-width:240px}
+
+/* Escena de perfil: título fijo y ejes que se relevan */
+#aporte .escenario{background:var(--bg)}
+.perfil{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+.perfil .sub{font-size:19px;font-weight:300;color:var(--ink);max-width:440px}
+.ejes{position:relative;min-height:300px}
+.eje{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;opacity:0;transform:translateX(40px);transition:opacity .55s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
+.eje.activo{opacity:1;transform:none}
+.eje.pasado{transform:translateX(-40px)}
+.eje .num{font:700 64px/1 "Open Sans",sans-serif;color:var(--turquesa);opacity:.9}
+.eje h3{font-size:26px;margin:10px 0 10px;color:var(--titulo)}
+.eje p{margin:0;font-size:16.5px;max-width:520px}
+.contador{display:flex;gap:6px;margin-top:22px}
+.contador i{width:34px;height:3px;background:var(--line);border-radius:2px;transition:background .4s}
+.contador i.activo{background:var(--turquesa)}
+
+/* Secciones normales */
+section.normal{padding:72px 0 16px}
+section.banda{background:var(--banda);padding-bottom:64px}
+h2{display:inline-block;font-size:30px;line-height:1.2;color:var(--titulo);font-weight:700;margin:0 0 8px;padding-bottom:8px;border-bottom:2px solid var(--turquesa)}
+.sub{color:var(--mute);margin:4px 0 24px;max-width:680px}
+.revela{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.revela.visto{opacity:1;transform:none}
+
+/* Proyectos: panel lateral fijo que sigue a la tarjeta en foco */
+.split{display:grid;grid-template-columns:330px 1fr;gap:48px;align-items:start}
+.split>*{min-width:0}
+.lado{position:sticky;top:88px}
+.lado .grande{font-size:30px;line-height:1.15;color:var(--ink);font-weight:700;margin:22px 0 6px;transition:opacity .3s}
+.lado .desc{color:var(--mute);font-size:14.5px;margin:0 0 14px;min-height:66px}
+.lado .cuenta{font:600 14px "Open Sans",sans-serif;color:var(--titulo);margin-bottom:22px}
+.lado .cuenta b{font-size:40px;line-height:1;margin-right:4px}
+.areas{display:flex;flex-direction:column;gap:6px}
+.areas button{display:flex;justify-content:space-between;gap:10px;text-align:left;background:none;border:0;border-left:3px solid var(--line);padding:6px 10px;cursor:pointer;color:var(--mute);font:500 14px "Poppins",sans-serif;transition:color .3s,border-color .3s,background .3s}
+.areas button small{font-size:12px;color:var(--mute)}
+.areas button:hover{color:var(--ink)}
+.areas button.tiene{color:var(--ink);border-left-color:var(--turquesa)}
+.areas button[aria-pressed="true"]{background:var(--sel);color:var(--sel-ink);border-left-color:var(--sel);border-radius:0 6px 6px 0}
+.areas button[aria-pressed="true"] small{color:inherit}
+.indicador{display:none}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;margin-bottom:16px;padding:20px 22px;transition:border-color .4s,box-shadow .4s,opacity .7s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.card.foco{border-color:var(--turquesa)}
+.card .g{color:var(--mute);margin-bottom:6px}
+.card h3{font-size:19px;line-height:1.35;margin:0 0 4px;color:var(--ink);font-weight:700}
+.card .ent{color:var(--titulo);font-size:14px;font-weight:500}
+.card .per{font-size:12.5px;color:var(--mute);margin-top:2px}
+.card p{margin:10px 0 0}
+.card ul{margin:8px 0 0;padding-left:18px}
+.card li{margin:4px 0;font-size:14.5px}
+.card li::marker{color:var(--turquesa)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tag{background:var(--chip);color:var(--ink);border-radius:4px;padding:1px 8px;font-size:12px}
+
+/* Portafolio */
+.tabs{position:sticky;top:56px;z-index:5;background:var(--bg);display:flex;gap:6px;padding:12px 0;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;background:var(--panel);border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:5px 12px;font:500 13px "Poppins",sans-serif;cursor:pointer}
+.tabs button b{font-weight:500;color:var(--mute);margin-left:4px}
+.tabs button[aria-selected="true"]{background:var(--sel);color:var(--sel-ink);border-color:var(--sel)}
+.tabs button[aria-selected="true"] b{color:inherit}
+.def{font-size:13.5px;color:var(--mute);margin:4px 0 12px;min-height:22px}
+.lista{background:var(--panel);border:1px solid var(--line);border-radius:8px}
+.fila{display:grid;grid-template-columns:92px 1fr auto;gap:14px;padding:11px 16px;border-bottom:1px solid var(--line);align-items:baseline}
+.fila:last-child{border-bottom:0}
+.fila .a{font-size:12.5px;color:var(--mute);white-space:nowrap}
+.fila .n{font-weight:500}
+.fila .l{display:block;font-size:13px;color:var(--mute)}
+.fila .t{font-size:11.5px;color:var(--titulo);font-weight:500;text-align:right}
+.fila.mas{display:block;text-align:center}
+.fila.mas button{background:none;border:0;color:var(--titulo);font:500 14.5px "Poppins",sans-serif;cursor:pointer}
+
+/* Trayectoria: año grande fijo a la izquierda */
+.anio{font:700 clamp(56px,8vw,96px)/1 "Open Sans",sans-serif;color:var(--titulo);letter-spacing:-.03em;margin-top:24px}
+.anio-c{font:600 17px/1.35 "Open Sans",sans-serif;margin:10px 0 2px}
+.anio-e{color:var(--mute);font-size:14px}
+.linea{position:relative;margin-left:6px;border-left:2px solid var(--line)}
+.hito{position:relative;padding:0 0 26px 26px;transition:opacity .4s}
+.hito:before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:3px solid var(--line);transition:border-color .4s,background .4s}
+.hito.foco:before,.hito.actual:before{border-color:var(--turquesa)}
+.hito.foco:before{background:var(--turquesa)}
+.hito .p{font-size:12.5px;color:var(--mute)}
+.hito b{display:block;font-family:"Open Sans",sans-serif;font-size:16.5px;color:var(--ink)}
+.hito .e{color:var(--titulo);font-size:14px;font-weight:500}
+.hito .x{display:block;font-size:13.5px;color:var(--mute)}
+details{margin-top:4px}
+summary{cursor:pointer;color:var(--titulo);font-weight:500;font-size:14.5px;padding:6px 0}
+
+/* Instituciones, formación, capacitación */
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.caja{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px 20px}
+.caja h3{font-size:16px;margin:0 0 12px;color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{background:var(--chip);border-radius:4px;padding:3px 10px;font-size:13px}
+.item{padding:10px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:0;padding-bottom:0}
+.item:first-of-type{padding-top:0}
+.item b{display:block;font-weight:500}
+.item span{font-size:13.5px;color:var(--mute)}
+.cap .fila{grid-template-columns:70px 1fr}
+
+/* Cierre */
+.cierre{background:var(--hero);color:#fff;margin-top:72px}
+.cierre .wrap{padding-top:56px;padding-bottom:56px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.cierre h2{color:#fff;margin:0}
+.cierre p{margin:10px 0 0;font-weight:300;max-width:520px}
+footer{padding:20px 0 40px;font-size:12.5px;color:var(--mute)}
+
+@media (max-width:900px){
+  .split{grid-template-columns:1fr;gap:0}
+  .lado{position:static}
+  .lado .grande,.lado .desc,.lado .cuenta,.lado .anio,.lado .anio-c,.lado .anio-e{display:none}
+  .areas{flex-direction:row;overflow-x:auto;scrollbar-width:none;margin:0 -16px 8px;padding:0 16px}
+  .areas::-webkit-scrollbar{display:none}
+  .areas button{flex:none;border-left:0;border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:13px}
+  .areas button[aria-pressed="true"]{border-radius:999px}
+  .indicador{display:flex;justify-content:space-between;align-items:center;position:sticky;top:56px;z-index:4;background:var(--banda);padding:10px 0;margin-bottom:8px;font-size:13px;border-bottom:1px solid var(--line)}
+  .indicador b{color:var(--titulo);font-weight:500}
+  .perfil{grid-template-columns:1fr;gap:16px}
+  .perfil .sub{font-size:16px}
+  .ejes{min-height:280px}
+  .dos{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .portada{grid-template-columns:1fr;gap:18px}
+  .foto{width:132px;height:132px;border-width:4px;order:-1}
+  .portada .lema{font-size:15.5px;margin-bottom:16px}
+  .portada h1{margin:6px 0 12px}
+  .meta{margin-bottom:16px}
+  .btn{padding:8px 14px;font-size:13.5px}
+  .cifras{grid-template-columns:1fr 1fr}
+  .cifra{padding:16px 10px 16px 0}
+  .cifra span{font-size:12.5px}
+  .cifras-tit{margin-bottom:16px}
+  .eje .num{font-size:44px}
+  .eje h3{font-size:21px}
+  .eje p{font-size:15px}
+  h2{font-size:25px}
+  .fila{grid-template-columns:1fr;gap:2px}
+  .fila .t{text-align:left}
+  .top strong{display:none}
+  .puntos,.pista{display:none}
+}
+
+/* Sin animaciones (preferencia del sistema) e impresión: todo en orden normal */
+.quieto .escena{height:auto}
+.quieto .escenario{position:static;height:auto;overflow:visible}
+.quieto .paso{position:static;opacity:1;visibility:visible;transform:none;padding:72px 0}
+.quieto .ejes{min-height:0}
+.quieto .eje{position:static;opacity:1;transform:none;margin-bottom:28px}
+.quieto .puntos,.quieto .pista,.quieto .contador{display:none}
+.quieto .revela{opacity:1;transform:none}
+@media print{
+  .top,.areas,.tabs,.tema,.btns,.def,.puntos,.pista,.indicador,.contador{display:none!important}
+  body{font-size:10.5pt;background:#fff;color:#222}
+  .escena{height:auto!important}
+  .escenario{position:static!important;height:auto!important;overflow:visible!important;background:#fff!important;color:#222!important;padding:0!important}
+  .paso{position:static!important;opacity:1!important;visibility:visible!important;transform:none!important;padding:16px 0!important}
+  .meta span{border-color:#999!important}
+  .cifra b{color:var(--azul)}
+  .cifra{border-color:#ddd!important}
+  .ejes{min-height:0!important}
+  .eje{position:static!important;opacity:1!important;transform:none!important;margin-bottom:12px}
+  .revela{opacity:1!important;transform:none!important}
+  .split{grid-template-columns:1fr}
+  .lado{position:static}
+  .lado .grande,.lado .desc,.lado .cuenta,.anio,.anio-c,.anio-e{display:none}
+  .cierre{background:#fff;color:#222}
+  .cierre h2{color:var(--azul)}
+  section.normal{padding-top:20px}
+  section.banda{background:#fff}
+  .card,.hito,.fila,.eje{break-inside:avoid}
+  details>*{display:block}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <strong id="navnombre"></strong>
+  <nav aria-label="Secciones">
+    <a href="#inicio">Inicio</a><a href="#aporte">Perfil</a><a href="#proyectos">Proyectos</a><a href="#portafolio">Instrumentos</a><a href="#trayectoria">Trayectoria</a><a href="#formacion">Formación</a><a href="#contacto">Contacto</a>
+  </nav>
+  <button class="tema" id="tema" aria-label="Cambiar entre modo claro y oscuro">◐</button>
+</div><div class="avance" id="avance"></div></header>
+
+<main>
+  <!-- Escena 1: portada y cifras -->
+  <div class="escena" id="inicio" style="--n:2">
+    <div class="escenario">
+      <div class="paso" data-paso="0"><div class="wrap portada">
+        <div>
+          <div class="etq" id="etiqueta"></div>
+          <h1 id="nombre"></h1>
+          <p class="lema" id="lema"></p>
+          <div class="meta" id="meta"></div>
+          <div class="btns" id="btns"></div>
+        </div>
+        <img class="foto" id="foto" alt="">
+      </div></div>
+      <div class="paso" data-paso="1"><div class="wrap">
+        <div class="etq" style="opacity:.8">En cifras</div>
+        <p class="cifras-tit">Una trayectoria entre el Estado, la empresa y el campo.</p>
+        <div class="cifras" id="cifras"></div>
+      </div></div>
+      <div class="puntos" aria-hidden="true"></div>
+      <div class="pista">Desliza</div>
+    </div>
+  </div>
+
+  <!-- Escena 2: perfil profesional, un eje por paso -->
+  <div class="escena" id="aporte" style="--n:3">
+    <div class="escenario">
+      <div class="paso activo" data-fijo><div class="wrap perfil">
+        <div>
+          <h2>Perfil profesional</h2>
+          <p class="sub" id="perfil"></p>
+          <div class="contador" id="contador"></div>
+        </div>
+        <div class="ejes" id="ejes"></div>
+      </div></div>
+      <div class="puntos" aria-hidden="true" style="color:var(--titulo)"></div>
+    </div>
+  </div>
+
+  <section id="proyectos" class="normal banda"><div class="wrap split">
+    <aside class="lado">
+      <h2>Proyectos destacados</h2>
+      <div class="grande" id="g-nombre"></div>
+      <p class="desc" id="g-desc"></p>
+      <div class="cuenta"><b id="g-num">01</b>/ <span id="g-total"></span></div>
+      <div class="areas" id="areas" role="group" aria-label="Filtrar por área"></div>
+    </aside>
+    <div>
+      <div class="indicador"><b id="i-nombre"></b><span id="i-num"></span></div>
+      <div id="lista-proyectos"></div>
+    </div>
+  </div></section>
+
+  <section id="portafolio" class="normal"><div class="wrap">
+    <h2 class="revela">Instrumentos y monitoreos</h2>
+    <p class="sub revela">Instrumentos de gestión ambiental elaborados, evaluados o acompañados, estudios y monitoreos ejecutados, como profesional independiente y a través de CEORZA.</p>
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <p class="def" id="def"></p>
+    <div class="lista" id="lista-port"></div>
+  </div></section>
+
+  <section id="trayectoria" class="normal"><div class="wrap split">
+    <aside class="lado">
+      <h2>Trayectoria</h2>
+      <div class="anio" id="t-anio"></div>
+      <div class="anio-c" id="t-cargo"></div>
+      <div class="anio-e" id="t-ent"></div>
+    </aside>
+    <div>
+      <div class="linea" id="linea"></div>
+      <details id="antiguos"><summary>Ver los primeros años (2016 a 2018)</summary><div class="linea" id="linea2"></div></details>
+    </div>
+  </div></section>
+
+  <section id="instituciones" class="normal"><div class="wrap">
+    <h2 class="revela">Con quién ha trabajado</h2>
+    <p class="sub revela">Entidades y empresas para las que prestó servicios directamente o mediante CEORZA.</p>
+    <div class="dos revela" id="inst"></div>
+  </div></section>
+
+  <section id="formacion" class="normal banda" style="margin-top:72px"><div class="wrap">
+    <h2 class="revela">Formación y registros</h2>
+    <div class="dos revela" style="margin-top:16px">
+      <div class="caja"><h3>Grados y títulos</h3><div id="grados"></div></div>
+      <div class="caja"><h3>Colegiatura y registros</h3><div id="registros"></div></div>
+    </div>
+    <h2 class="revela" style="margin-top:56px">Capacitación</h2>
+    <p class="sub revela">Diplomados y programas de mayor carga horaria, del más reciente al más antiguo.</p>
+    <div class="lista cap revela" id="cap"></div>
+    <details><summary id="cap-sum"></summary><div class="lista cap" id="cap2"></div></details>
+    <div class="dos revela" style="margin-top:40px">
+      <div class="caja"><h3>Ponencias y eventos</h3><div id="pon"></div></div>
+      <div class="caja"><h3>Herramientas e idiomas</h3><div class="chips" id="herr"></div><div class="chips" id="idio" style="margin-top:12px"></div></div>
+    </div>
+  </div></section>
+</main>
+
+<div class="cierre" id="contacto"><div class="wrap revela">
+  <div><h2>Conversemos</h2><p>Constancias, certificados y el detalle de cada proyecto se entregan a solicitud.</p></div>
+  <div class="btns" id="btns2"></div>
+</div></div>
+<footer><div class="wrap">Actualizado el <span id="act"></span>.</div></footer>
+
+<script id="datos" type="application/json">{"actualizado": "2026-10-24", "persona": {"nombre": "Mauro Giancarlo Centurión Zamora", "corto": "Mauro Centurión", "etiqueta": "Ingeniero Ambiental · Maestro en Gestión Ambiental", "lema": "Conozco la gestión ambiental desde el enfoque preventivo y correctivo de la supervisión, auditoría y fiscalización ambiental, así como desde la formulación e implementación de obligaciones ambientales.", "ubicacion": "Lima · Cajamarca", "cip": "CIP N.º 219814", "senace": "SENACE RNC-00218-2023", "linkedin": "https://www.linkedin.com/in/maurocenturion", "correo": "czmaurog@gmail.com", "foto": "img/mauro.jpg", "pdf": ""}, "cifras": [{"valor": "8+", "texto": "años de experiencia en el sector público y privado"}, {"valor": "50+", "texto": "profesionales a cargo en equipos multidisciplinarios"}, {"valor": "100+", "texto": "personas de campo coordinadas"}, {"valor": "35+", "texto": "instrumentos de gestión ambiental elaborados o evaluados"}, {"valor": "8", "texto": "subsectores con registro en SENACE"}, {"valor": "5 000+", "texto": "horas de capacitación certificada"}], "perfil": "Experiencia en todo el ámbito de la gestión ambiental: formulación, ejecución, control y fiscalización.", "propuesta": [{"titulo": "Supervisión desde el Estado", "texto": "Coordina la supervisión ambiental del sector transportes en el MTC y fue supervisor de OEFA en minería. Participa en la formulación de proyectos normativos ambientales del sector."}, {"titulo": "Cumplimiento desde la empresa", "texto": "Implementa y audita sistemas ISO 14001:2015 en distintas actividades y proyectos. Impulsó y ganó el concurso Mypimes de Calidad 2024 de ProInnóvate, con el que CEORZA se certificó en ISO 9001 e ISO 37001. Atendió supervisiones de OEFA, SERFOR, ANIN, DGAAM y OSITRAN, entre otros."}, {"titulo": "Resultados en campo", "texto": "Dirige proyectos ambientales de compensación, restauración, remediación y adecuación en distintos sectores productivos: minería, hidrocarburos, construcción, Reconstrucción con Cambios, transportes y otros."}], "areas": [{"id": "fiscalizacion", "nombre": "Supervisión y fiscalización"}, {"id": "normativa", "nombre": "Normativa y políticas"}, {"id": "iso", "nombre": "Sistemas ISO y auditoría"}, {"id": "compensacion", "nombre": "Compensación y restauración"}, {"id": "monitoreo", "nombre": "Monitoreo y participación"}, {"id": "liderazgo", "nombre": "Gestión de equipos y capacitación"}], "grupos": {"Sector público": "Supervisión, fiscalización y política ambiental desde el MTC, OEFA y el Gobierno Regional de Cajamarca.", "CEORZA": "Proyectos que dirige como CEO de CEORZA, consultora ambiental con registro en SENACE.", "Otras empresas": "Gestión ambiental dentro de obras y concesiones de infraestructura."}, "destacados": [{"grupo": "Sector público", "titulo": "Coordinación de la supervisión ambiental del sector transportes", "entidad": "Ministerio de Transportes y Comunicaciones · Dirección de Gestión Ambiental", "periodo": "2024 · actualidad", "areas": ["fiscalizacion", "liderazgo"], "texto": "Asesoramiento y coordinación técnica del equipo multidisciplinario de supervisión y fiscalización ambiental: planificación de las acciones de supervisión, revisión de informes y actas, y participación en supervisiones a proyectos emblemáticos con EIA detallado y semidetallado.", "puntos": ["Ponencias sectoriales ante el Congreso de la República sobre el TPM Salaverry, el Puerto de Chancay, el Aeropuerto Internacional Jorge Chávez y la Línea 2 del Metro de Lima.", "Mesas de diálogo y de trabajo con MINAM, MINEM, OEFA, SENACE y PRODUCE.", "Capacitación en materia ambiental a gobiernos regionales y demás administrados del sector."]}, {"grupo": "Sector público", "titulo": "Proyectos normativos ambientales del sector transportes", "entidad": "Ministerio de Transportes y Comunicaciones", "periodo": "2024 · actualidad", "areas": ["normativa"], "texto": "Participación técnica en la formulación de los proyectos normativos que ordenan la evaluación, la supervisión y la sanción ambiental del sector.", "puntos": ["Reglamento de Protección Ambiental del Sector Transportes: modificación.", "Reglamento de Supervisión y Fiscalización en Materia Ambiental del Sector Transportes: propuesta de modificación.", "Reglamento de Transporte de Materiales y Residuos Peligrosos: modificación y consulta pública.", "Reglamento de Infracciones, D.S. N.º 015-2022-MTC: propuesta de modificación."]}, {"grupo": "Sector público", "titulo": "Supervisión ambiental en gran minería", "entidad": "OEFA · Coordinación de Supervisión Ambiental en Minería", "periodo": "2021", "areas": ["fiscalizacion"], "texto": "Tercero supervisor (nivel Supervisor V) en la unidad fiscalizable Las Bambas, en Challhuahuacho (Apurímac), y en la atención de una denuncia ambiental en la UM Bateas, en Caylloma (Arequipa)."}, {"grupo": "Sector público", "titulo": "Retribución por servicios ecosistémicos hídricos", "entidad": "Gobierno Regional de Cajamarca", "periodo": "2021 · 2022", "areas": ["normativa"], "texto": "Propuestas de mecanismos de retribución por servicios ecosistémicos hídricos para el Consejo de Recursos Hídricos Chancay-Lambayeque y para la creación del Fondo de Agua Jequetepeque-Zaña."}, {"grupo": "Sector público", "titulo": "Residuos sólidos en la emergencia por COVID-19", "entidad": "Dirección Ejecutiva de Salud Ambiental · DIRESA Cajamarca", "periodo": "2020", "areas": ["normativa"], "texto": "Plan Integral Regional de Manejo de Residuos Sólidos en los lugares de aislamiento obligatorio frente a la COVID-19."}, {"grupo": "CEORZA", "titulo": "Certificación ISO 9001 e ISO 37001 de CEORZA", "entidad": "CEORZA S.A.C. · ProInnóvate", "periodo": "2024", "areas": ["iso"], "texto": "Impulsó la postulación y ganó el concurso Mypimes de Calidad 2024 de ProInnóvate. Como implementador del sistema de gestión, llevó a CEORZA a certificarse en ISO 9001:2015 (calidad) e ISO 37001:2016 (antisoborno)."}, {"grupo": "CEORZA", "titulo": "Compensación y restauración ambiental en Cerro Corona", "entidad": "Gold Fields La Cima · Hualgayoc, Cajamarca", "periodo": "2022 · 2024", "areas": ["compensacion"], "texto": "Cerca de ocho meses de compensación y restauración ambiental: producción de plantones de Polylepis racemosa (queñua) y supervisión de la plantación en 50 ha, más el replante de especies forestales.", "puntos": ["Informes de forestación y captura de carbono para 20 ha (2022) y 50 ha (2023)."]}, {"grupo": "CEORZA", "titulo": "Monitoreo del cierre de pasivos ambientales mineros", "entidad": "Sociedad Minera Corona · Hualgayoc, Cajamarca", "periodo": "", "areas": ["monitoreo"], "texto": "Monitoreo del cierre de pasivos ambientales mineros con interacción suelo-agua. La experiencia sustenta su ponencia en el congreso CONAEINGEO 2025."}, {"grupo": "CEORZA", "titulo": "Liderazgo del Comité Participativo de Monitoreo Ambiental", "entidad": "Petroperú · Talara, Piura", "periodo": "", "areas": ["monitoreo", "liderazgo"], "texto": "Lideró el comité participativo que vigila con la población el desempeño ambiental de las operaciones de Petroperú en Talara."}, {"grupo": "CEORZA", "titulo": "Compensación ecosistémica en la quebrada Corrales", "entidad": "Consorcio Besalco Stracon · Autoridad Nacional de Infraestructura · Tumbes", "periodo": "2026", "areas": ["compensacion", "monitoreo"], "texto": "Compensación ecosistémica en áreas reforestadas, ligada a las defensas ribereñas de la quebrada Corrales que ejecuta la ANIN dentro de la Reconstrucción con Cambios. Incluye el monitoreo dasométrico de lo plantado, con un tablero de seguimiento propio."}, {"grupo": "CEORZA", "titulo": "Rescate y compensación de flora sensible", "entidad": "Obrascon Huarte Lain (OHLA) · La Libertad y Cajamarca", "periodo": "2025", "areas": ["compensacion"], "texto": "Rescate, reubicación y compensación de cactáceas y tillandsias en las áreas priorizadas de la cantera Calvayunque y el río Chicama (Ascope) y en Contumazá."}, {"grupo": "CEORZA", "titulo": "Diagnóstico de arbolado e inventario forestal", "entidad": "Benito Roggio e Hijos · Sullana, Piura", "periodo": "2025", "areas": ["compensacion"], "texto": "Diagnóstico físico y sanitario de especies arbóreas, inventario forestal y expedientes de desbosque."}, {"grupo": "CEORZA", "titulo": "Gerencia de proyectos, auditoría y capacitación", "entidad": "CEORZA S.A.C.", "periodo": "2018 · actualidad", "areas": ["iso", "liderazgo", "monitoreo"], "texto": "Coordina y gerencia los proyectos de elaboración de IGA y su implementación en pequeña minería, realiza auditorías ambientales en el marco de los IGA y de ISO 14001, y capacita a empresas y profesionales.", "puntos": ["Liderazgo de equipos multidisciplinarios y de más de 100 personas de campo en todo el periodo.", "IGAFOM para titulares del REINFO entre 2020 y 2024.", "Monitoreos de aire, agua, suelo y ruido para minería, construcción y gobiernos locales."]}, {"grupo": "Otras empresas", "titulo": "Defensas ribereñas de los ríos Chicama y Virú-Gestor", "entidad": "Obrascon Huarte Lain S.A. Sucursal del Perú", "periodo": "2023 · 2024", "areas": ["iso", "fiscalizacion"], "texto": "Supervisor de Medio Ambiente. Elaboración e implementación de IGA, seguimiento del cumplimiento y auditorías internas de la trinorma ISO del proyecto, cartografía y control de subcontratistas.", "puntos": ["Atención de las supervisiones y fiscalizaciones de OEFA, SERFOR y ANIN."]}, {"grupo": "Otras empresas", "titulo": "Carretera Longitudinal de la Sierra, Tramo 2", "entidad": "Concesionaria Vial Sierra Norte (Grupo Sacyr)", "periodo": "2018 · 2019", "areas": ["iso", "fiscalizacion"], "texto": "Ingeniero de Medio Ambiente. Recertificación ISO 14001 de la concesión y seguimiento del cumplimiento de los subcontratistas.", "puntos": ["Atención de las supervisiones de DGAAM y OSITRAN a la concesión."]}, {"grupo": "Otras empresas", "titulo": "Remediación de suelos impactados por hidrocarburos", "entidad": "Empresa de Transportes N&V · Carretera Cajamarca-Hualgayoc, km 72", "periodo": "2020", "areas": ["compensacion"], "texto": "Planificación, ejecución y seguimiento de la remediación de un derrame de combustible con tratamiento biológico y químico, primero como coordinador técnico y luego como especialista ambiental."}], "portafolio": [{"tipo": "DIA", "nombre": "Reparación de vías vecinales Chugur, Vista Alegre y Jadibamba", "lugar": "Huasmín, Celendín (Cajamarca)", "anio": "2023"}, {"tipo": "DIA", "nombre": "Caminos vecinales CA-585, CA-579 y CA-582", "lugar": "Huarango, San Ignacio (Cajamarca)", "anio": "2024"}, {"tipo": "DIA", "nombre": "Camino vecinal CA-1000, tramo Pilco, El Tingo y Huasmín", "lugar": "Huasmín, Celendín (Cajamarca)", "anio": "2024"}, {"tipo": "DIA", "nombre": "Concesión minera metálica Frontera Dorada", "lugar": "Cajamarca", "anio": "2022 · 2023"}, {"tipo": "DIA", "nombre": "Minería no metálica Carbonera Las Tres Marías", "lugar": "Cajamarca", "anio": "2023"}, {"tipo": "DIA", "nombre": "Estación de servicio, gasocentro y GNV", "lugar": "Inversiones ADRI Contratistas", "anio": "2025"}, {"tipo": "DIA", "nombre": "Revisión de DIA e informe técnico favorable de grifo", "lugar": "Pacaipampa, Ayabaca (Piura)", "anio": "2023"}, {"tipo": "EIA", "nombre": "Reservorios para riego en Huancabamba, Ayabaca y Morropón", "lugar": "Dirección Regional de Agricultura de Piura", "anio": "2022"}, {"tipo": "EIA", "nombre": "Carretera San Jerónimo de Surco - Matucana (nivel perfil, asistente)", "lugar": "Lima", "anio": "2017"}, {"tipo": "EVAP", "nombre": "Establecimiento de Salud Shirac", "lugar": "San Marcos (Cajamarca)", "anio": "2023"}, {"tipo": "EVAP", "nombre": "Establecimiento de Salud I-2 Namora", "lugar": "Cajamarca", "anio": "2022 · 2023"}, {"tipo": "EVAP", "nombre": "Red eléctrica primaria y secundaria, sector El Arbolito", "lugar": "Huancabamba (Piura)", "anio": "2024"}, {"tipo": "FITSA", "nombre": "Camino vecinal Mono Punta - Imbis", "lugar": "Cochabamba, Huacaybamba (Huánuco)", "anio": "2021"}, {"tipo": "FITSA", "nombre": "Transitabilidad interurbana de 10 localidades", "lugar": "Cujillo, Cutervo (Cajamarca)", "anio": "2024"}, {"tipo": "FITSA", "nombre": "Puentes modulares Consuelo y Los Olivos, con compatibilidad ANP", "lugar": "Huánuco · Provías Descentralizado", "anio": "2020"}, {"tipo": "FTA", "nombre": "Agua potable y alcantarillado en Cruz Pampa y sectores", "lugar": "Santa Cruz (Cajamarca)", "anio": "2021"}, {"tipo": "FTA", "nombre": "Agua potable y saneamiento en Mitopampa y anexos", "lugar": "Santa Cruz (Cajamarca)", "anio": "2020 · 2021"}, {"tipo": "FTA", "nombre": "Recuperación de servicios ecosistémicos en 15 unidades productoras", "lugar": "Dirección Regional de Agricultura Cajamarca", "anio": "2025"}, {"tipo": "ITS", "nombre": "Modificación de DIA: redes eléctricas en 6 centros poblados", "lugar": "Lambayeque", "anio": "2024"}, {"tipo": "IGA", "nombre": "Represas de las lagunas Segra, Milpoj e Ispaj (IGAPRO)", "lugar": "Cajatambo (Lima)", "anio": "2023"}, {"tipo": "IGA", "nombre": "Protección de riberas del río Huertas", "lugar": "Chilete, Contumazá (Cajamarca)", "anio": "2023"}, {"tipo": "PAMA", "nombre": "Camal municipal de Kayra", "lugar": "Municipalidad Provincial del Cusco", "anio": "2023 · 2024"}, {"tipo": "IGAFOM", "nombre": "Formalización de titulares del REINFO (Condorcana, La Fortaleza Perú, La Perla del Norte, MINEX y otros)", "lugar": "Pequeña minería", "anio": "2020 · 2024"}, {"tipo": "SEIA", "nombre": "Puentes modulares Nuevo Edén, Kaquencora, Fundición y Mishca", "lugar": "Ucayali, Puno y Piura · Provías Descentralizado", "anio": "2019 · 2020"}, {"tipo": "Preinversión", "nombre": "Componente ambiental del estudio de la Agencia Agraria Pataz", "lugar": "Tayabamba, Pataz · Gerencia Regional de Agricultura La Libertad", "anio": "2022"}, {"tipo": "Preinversión", "nombre": "Componente ambiental del estudio de capacidades institucionales", "lugar": "Trujillo · Gerencia Regional de Agricultura La Libertad", "anio": "2022"}, {"tipo": "Residuos", "nombre": "Tercera etapa de la planta de tratamiento y disposición final de residuos sólidos municipales", "lugar": "VyP Ingenieros Consultores", "anio": "2019 · 2020"}, {"tipo": "Residuos", "nombre": "Plan Integral Regional de Manejo de Residuos Sólidos en aislamiento por COVID-19", "lugar": "DIRESA Cajamarca", "anio": "2020"}, {"tipo": "Remediación", "nombre": "Planes de remediación y mitigación para transporte de diésel B5", "lugar": "Compañía Minera y Maderera RA&OR", "anio": "2024"}, {"tipo": "Auditoría", "nombre": "Auditoría ambiental con visita de campo", "lugar": "Huachipa y Ate (Lima) · GREATS Group", "anio": "2025"}, {"tipo": "Monitoreo", "nombre": "Calidad de aire y ruido en planta de concreto", "lugar": "Concretos Quintana · Cajamarca", "anio": "2026"}, {"tipo": "Monitoreo", "nombre": "Aire, suelo, agua y ruido en la ruta Namora - San Nicolás", "lugar": "Geoandina Inversiones & Obras", "anio": "2026"}, {"tipo": "Monitoreo", "nombre": "Monitoreo participativo del saneamiento de Amangay", "lugar": "Huayo, Pataz (La Libertad)", "anio": "2025"}, {"tipo": "Monitoreo", "nombre": "Plan de Trabajo Anual del Comité Comunal de Monitoreo Socioambiental", "lugar": "Petroperú · Huasmín, Celendín", "anio": "2024"}, {"tipo": "Monitoreo", "nombre": "Recarga hídrica del embalse Tinajones (IOARR, 7 unidades productoras)", "lugar": "Dirección Regional de Agricultura Cajamarca", "anio": "2023"}, {"tipo": "Monitoreo", "nombre": "Aire y ruido en la disposición final de residuos sólidos", "lugar": "Municipalidad Provincial de Cajamarca", "anio": "2023"}, {"tipo": "Monitoreo", "nombre": "Aire, suelo, lixiviados y ruido", "lugar": "Municipalidad Distrital de Luya (Amazonas)", "anio": "2023"}], "linea": [{"periodo": "2024 · actualidad", "cargo": "Coordinador en Supervisión Ambiental", "entidad": "MTC · Dirección de Gestión Ambiental", "nota": "Órdenes de servicio sucesivas desde marzo de 2024, con constancias de prestación."}, {"periodo": "2018 · actualidad", "cargo": "CEO y Consultor Ambiental Senior", "entidad": "CEORZA S.A.C.", "nota": "IGA, monitoreo, compensación, sistemas ISO y capacitación."}, {"periodo": "2023 · 2024", "cargo": "Supervisor de Medio Ambiente", "entidad": "Obrascon Huarte Lain", "nota": "Defensas ribereñas de los ríos Chicama y Virú-Gestor."}, {"periodo": "2023 · 2024", "cargo": "Especialista Ambiental", "entidad": "Municipalidad Provincial del Cusco", "nota": "PAMA y certificación ambiental del camal de Kayra."}, {"periodo": "2023", "cargo": "Especialista en Monitoreo Ambiental", "entidad": "Dirección Regional de Agricultura de Cajamarca", "nota": "Recarga hídrica del embalse Tinajones."}, {"periodo": "2021 · 2022", "cargo": "Consultor y Especialista Ambiental", "entidad": "Gobiernos regionales de Cajamarca, Piura y La Libertad", "nota": "Servicios ecosistémicos hídricos, EIA de riego y estudios de preinversión."}, {"periodo": "2021", "cargo": "Supervisor ambiental en minería (Supervisor V)", "entidad": "OEFA", "nota": "Las Bambas y UM Bateas."}, {"periodo": "2020 · 2022", "cargo": "Especialista Ambiental", "entidad": "JELCH Ingenieros", "nota": "Supervisión del camino vecinal Puente Choques - Colcampampa, Oyón."}, {"periodo": "2020", "cargo": "Coordinador Técnico y Especialista Ambiental", "entidad": "Soluciones Ambientales Perú · Transportes N&V", "nota": "Remediación de suelos por derrame de combustible."}, {"periodo": "2020", "cargo": "Especialista en Impacto Ambiental", "entidad": "DIRESA Cajamarca · Salud Ambiental", "nota": "Residuos sólidos en la emergencia por COVID-19."}, {"periodo": "2019 · 2020", "cargo": "Especialista Ambiental", "entidad": "Provías Descentralizado y VyP Ingenieros", "nota": "Puentes modulares en el marco del SEIA y planta de residuos sólidos."}, {"periodo": "2018 · 2019", "cargo": "Ingeniero de Medio Ambiente", "entidad": "Concesionaria Vial Sierra Norte (Grupo Sacyr)", "nota": "Longitudinal de la Sierra, Tramo 2."}, {"periodo": "2018", "cargo": "Especialista Ambiental", "entidad": "Consorcio Los Andes", "nota": "Agua potable y saneamiento rural en San Pablo.", "antiguo": true}, {"periodo": "2017 · 2018", "cargo": "Asistente en Seguridad y Medio Ambiente", "entidad": "Provías Nacional", "nota": "Corredor vial Cutervo - Sócota - Cuyca, Ruta PE-3ND.", "antiguo": true}, {"periodo": "2017", "cargo": "Asistente Ambiental", "entidad": "Ecocel Soluciones Ambientales", "nota": "EIA y DIA en proyectos viales y de reubicación.", "antiguo": true}, {"periodo": "2016 · 2017", "cargo": "Asistente en Seguridad y Medio Ambiente", "entidad": "Consorcio Cantoon Rejali", "nota": "Agua potable y alcantarillado de Contumazá.", "antiguo": true}, {"periodo": "2016", "cargo": "Practicante preprofesional", "entidad": "Dirección Regional de Energía y Minas Cajamarca", "nota": "Evaluación de IGA de minería e hidrocarburos.", "antiguo": true}], "instituciones": {"Sector público": ["MTC", "OEFA", "Provías Nacional", "Provías Descentralizado", "Gobierno Regional de Cajamarca", "Dirección Regional de Agricultura de Cajamarca", "Dirección Regional de Agricultura de Piura", "Gerencia Regional de Agricultura La Libertad", "DIRESA Cajamarca", "DREM Cajamarca", "Municipalidad Provincial del Cusco", "Municipalidad Provincial de Cajamarca", "Municipalidad Provincial de Santa Cruz", "Municipalidades de Chilete, Cujillo, Cochabamba, Huasmín y Luya"], "Sector privado": ["Gold Fields La Cima", "Sociedad Minera Corona", "Petroperú", "Obrascon Huarte Lain", "Concesionaria Vial Sierra Norte (Sacyr)", "Consorcio Besalco Stracon", "Benito Roggio e Hijos", "Concretos Quintana", "Geoandina", "Consytec", "VyP Ingenieros Consultores", "JELCH Ingenieros", "Titulares mineros del REINFO"]}, "formacion": [{"titulo": "Maestro en Ciencias con mención en Gestión Ambiental", "lugar": "Universidad Nacional de Cajamarca", "fecha": "2023"}, {"titulo": "Ingeniero Ambiental", "lugar": "Universidad Privada del Norte", "fecha": "2018"}, {"titulo": "Bachiller en Ingeniería Ambiental", "lugar": "Universidad Privada del Norte", "fecha": "2017"}], "registros": [{"titulo": "Colegio de Ingenieros del Perú", "texto": "CIP N.º 219814, CD Cajamarca, incorporado en noviembre de 2018. Habilidad vigente hasta marzo de 2027."}, {"titulo": "SENACE, Registro Nacional de Consultoras Ambientales", "texto": "RNC-00218-2023, vigencia indeterminada, en 8 subsectores: agricultura y riego, vivienda, transportes, construcción, minería, residuos sólidos, electricidad e hidrocarburos."}], "capacitacion": [{"t": "Google Earth Engine con Python e inteligencia artificial", "l": "Geomática Perú", "f": "2026", "h": "40 h", "clave": true}, {"t": "Especialización en Derecho Ambiental, con módulo de Fiscalización Ambiental", "l": "Universidad Continental, Escuela de Posgrado", "f": "2025", "h": "192 h", "clave": true}, {"t": "Gerencia de Proyectos bajo el enfoque del PMI", "l": "Project Management Institute", "f": "2024", "h": "90 h", "clave": true}, {"t": "Monitoreo Biológico y del Servicio Ecosistémico del Carbono", "l": "CELAEP · CIP", "f": "2023", "h": "320 h", "clave": true}, {"t": "Gestión y Manejo Integral de Residuos Sólidos", "l": "Universidad Nacional de Piura · CIP", "f": "2022", "h": "480 h", "clave": true}, {"t": "Profesional Líder de Gestión Ambiental ISO 14001, con Auditor/Lead Auditor", "l": "SGS Academy", "f": "2021", "h": "58 h", "clave": true}, {"t": "Gestión Estratégica de la Pequeña Minería y Minería Artesanal", "l": "CELAEP · UNMSM", "f": "2020", "h": "528 h", "clave": true}, {"t": "Elaboración y Evaluación de Estudios de Impacto Ambiental", "l": "CELAEP · CIP", "f": "2018", "h": "528 h", "clave": true}, {"t": "Gestión del Agua en Minería y Energía", "l": "CELAEP · UNT · ANA", "f": "2018", "h": "600 h", "clave": true}, {"t": "Charla: Fiscalización Ambiental y Ciencia de Datos", "l": "OEFA, Academia de Fiscalización Ambiental", "f": "2026", "h": "2 h", "clave": false}, {"t": "AI Fluency: Framework & Foundations", "l": "Anthropic", "f": "2026", "h": "", "clave": false}, {"t": "Curso de especialización en Derecho Ambiental", "l": "Ecoambiental Group · CIP", "f": "2024", "h": "120 h", "clave": false}, {"t": "Delitos ambientales con enfoque de género e interculturalidad", "l": "SERFOR", "f": "2024", "h": "41 h", "clave": false}, {"t": "Formulación y evaluación de proyectos de cooperación internacional", "l": "Fundación Universitaria del Área Andina", "f": "2024", "h": "48 h", "clave": false}, {"t": "Operationalizing Article 6.2 of the Paris Agreement", "l": "Carbon Cooperation for Development · PNUD", "f": "2024", "h": "", "clave": false}, {"t": "Cálculo de huella de carbono", "l": "EADIC", "f": "2024", "h": "15 h", "clave": false}, {"t": "Power BI, analista de datos avanzado", "l": "Udemy", "f": "2024", "h": "15,5 h", "clave": false}, {"t": "Gestión de proyectos y fundamentos de metodología Agile", "l": "Santander Open Academy", "f": "2024", "h": "8 h", "clave": false}, {"t": "Mercados de carbono", "l": "Tecnológico de Monterrey", "f": "2023", "h": "35 h", "clave": false}, {"t": "Estudios de Impacto Ambiental y Conflictos Sociales", "l": "CELAEP", "f": "2023", "h": "144 h", "clave": false}, {"t": "Monitoreo de Calidad Ambiental", "l": "Instituto de la Calidad Ambiental", "f": "2022", "h": "90 h", "clave": false}, {"t": "Cierre de Proyectos Mineros", "l": "Pontificia Universidad Católica del Perú", "f": "2021", "h": "24 h", "clave": false}, {"t": "IGA, fiscalización y gestión de residuos en el sector Vivienda, Construcción y Saneamiento", "l": "CIP, CD Cajamarca", "f": "2021", "h": "12 h", "clave": false}, {"t": "Seguridad, Salud Ocupacional, Medio Ambiente y Calidad", "l": "Instituto SSOMA", "f": "2021", "h": "200 h", "clave": false}, {"t": "Gestión de Residuos Sólidos Municipales, Industriales y Hospitalarios", "l": "ENAM", "f": "2021", "h": "200 h", "clave": false}, {"t": "Formación de Consultores", "l": "CUMYPE e INCUBUNT, Universidad Nacional de Trujillo", "f": "2020", "h": "20 h", "clave": false}, {"t": "Biorremediación de suelos contaminados con hidrocarburos", "l": "KHUSKA SMA", "f": "2020", "h": "5 h", "clave": false}, {"t": "Peritos Ambientales", "l": "Instituto de Educación Ambiental", "f": "2020", "h": "12 h", "clave": false}, {"t": "Climate Change: From Learning to Action", "l": "UN CC:Learn (UNITAR)", "f": "2020", "h": "8 h", "clave": false}, {"t": "ArcGIS nivel avanzado, análisis multicriterio", "l": "Uciency", "f": "2019", "h": "120 h", "clave": false}, {"t": "Monitoreo de Flora y Fauna Silvestre", "l": "CELAEP · CIP", "f": "2018", "h": "144 h", "clave": false}, {"t": "Agua y Saneamiento Rural", "l": "CELAEP · CIP", "f": "2018", "h": "144 h", "clave": false}], "ponencias": [{"t": "Diagnóstico a la remediación: aportes técnicos de la consultoría en la gestión de pasivos ambientales mineros con interacción suelo-agua", "l": "CONAEINGEO 2025, Universidad Nacional de Piura", "f": "2025"}, {"t": "Ponencias sectoriales sobre TPM Salaverry, Puerto de Chancay, Aeropuerto Jorge Chávez y Línea 2 del Metro de Lima", "l": "Congreso de la República, en representación del MTC", "f": ""}, {"t": "International Day of Forests, actividad académica conducida", "l": "ICPNA y American Spaces, Cajamarca", "f": "2024"}, {"t": "Emprendimiento Social y Ambiental", "l": "Universidad Privada del Norte, Cajamarca", "f": "2023"}, {"t": "I Taller de Especialización en Seguridad y Salud Ocupacional (organizador)", "l": "CEORZA y JML Ingenieros, Cajamarca", "f": "2019"}], "herramientas": ["ArcGIS Pro", "QGIS", "Google Earth Engine (Python)", "Power BI", "AutoCAD", "Global Mapper", "Microsoft Office"], "idiomas": ["Inglés intermedio-avanzado", "Portugués básico"]}</script>
+<script>
+const D = JSON.parse(document.getElementById('datos').textContent);
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const dos = n => String(n).padStart(2, '0');
+const P = D.persona;
+const raiz = document.documentElement;
+const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (quieto) raiz.classList.add('quieto');
+
+/* Contenido */
+$('navnombre').textContent = P.corto;
+$('etiqueta').textContent = P.etiqueta;
+$('nombre').textContent = P.nombre;
+$('lema').textContent = P.lema;
+$('meta').innerHTML = [P.ubicacion, P.cip, P.senace].map(x => `<span>${esc(x)}</span>`).join('');
+$('foto').src = P.foto; $('foto').alt = 'Fotografía de ' + P.nombre;
+const botones = `<a class="btn lleno" href="${esc(P.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>` +
+  `<a class="btn" href="mailto:${esc(P.correo)}">${esc(P.correo)}</a>` +
+  (P.pdf ? `<a class="btn" href="${esc(P.pdf)}" download>CV en PDF</a>` : `<button class="btn" type="button" onclick="print()">Guardar en PDF</button>`);
+$('btns').innerHTML = botones; $('btns2').innerHTML = botones;
+$('cifras').innerHTML = D.cifras.map(c => `<div class="cifra"><b data-v="${esc(c.valor)}">${esc(c.valor)}</b><span>${esc(c.texto)}</span></div>`).join('');
+$('perfil').textContent = D.perfil;
+$('ejes').innerHTML = D.propuesta.map((p, i) => `<div class="eje" data-paso="${i}"><span class="num">${dos(i + 1)}</span><h3>${esc(p.titulo)}</h3><p>${esc(p.texto)}</p></div>`).join('');
+$('contador').innerHTML = D.propuesta.map(() => '<i></i>').join('');
+
+/* Motor de escenas: el avance dentro de cada escena decide qué paso se ve */
+const escenas = [...document.querySelectorAll('.escena')].map(el => {
+  const n = +getComputedStyle(el).getPropertyValue('--n');
+  const pasos = [...el.querySelectorAll('[data-paso]')];
+  const puntos = el.querySelector('.puntos');
+  puntos.innerHTML = Array.from({length: n}, (_, i) => `<button type="button" tabindex="-1" data-i="${i}"></button>`).join('');
+  puntos.querySelectorAll('button').forEach(b => b.onclick = () => {
+    scrollTo({top: el.offsetTop + (+b.dataset.i + .5) / n * (el.offsetHeight - innerHeight), behavior: 'smooth'});
+  });
+  return {el, n, pasos, puntos: [...puntos.children], actual: -1};
+});
+let contado = false;
+function animaCifras(){
+  if (contado || quieto) return; contado = true;
+  document.querySelectorAll('.cifra b').forEach(b => {
+    const txt = b.dataset.v, num = parseFloat(txt.replace(/\s/g, ''));
+    if (isNaN(num)) return;
+    const suf = txt.replace(/^[\d\s]+/, ''), sep = /\s/.test(txt), t0 = performance.now();
+    const paso = t => {
+      const k = Math.min(1, (t - t0) / 1100), v = Math.round(num * (1 - Math.pow(1 - k, 3)));
+      b.textContent = (sep ? v.toLocaleString('es-PE').replace(/[.,]/g, ' ') : v) + suf;
+      if (k < 1) requestAnimationFrame(paso);
+    };
+    requestAnimationFrame(paso);
+  });
+}
+function pintaEscenas(){
+  for (const e of escenas) {
+    const total = e.el.offsetHeight - innerHeight;
+    const p = Math.min(.999, Math.max(0, (scrollY - e.el.offsetTop) / Math.max(1, total)));
+    const i = Math.floor(p * e.n);
+    if (i === e.actual) continue;
+    e.actual = i;
+    e.pasos.forEach(s => {
+      const k = +s.dataset.paso;
+      s.classList.toggle('activo', k === i);
+      s.classList.toggle('pasado', k < i);
+    });
+    e.puntos.forEach((b, k) => b.classList.toggle('activo', k === i));
+    if (e.el.id === 'inicio') {
+      e.el.querySelector('.escenario').classList.toggle('e1', i === 1);
+      if (i === 1) animaCifras();
+    }
+    if (e.el.id === 'aporte') $('contador').querySelectorAll('i').forEach((x, k) => x.classList.toggle('activo', k <= i));
+  }
+  const tope = document.body.scrollHeight - innerHeight;
+  $('avance').style.transform = `scaleX(${tope > 0 ? scrollY / tope : 0})`;
+  document.querySelector('.pista').style.opacity = scrollY > 40 ? 0 : '';
+}
+let pend = false;
+addEventListener('scroll', () => { if (!pend) { pend = true; requestAnimationFrame(() => { pend = false; pintaEscenas(); }); } }, {passive: true});
+addEventListener('resize', () => { escenas.forEach(e => e.actual = -1); pintaEscenas(); });
+
+/* Aparición suave al entrar en pantalla */
+const ver = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('visto'); ver.unobserve(x.target); } }), {rootMargin: '0px 0px -8% 0px'});
+const observaRevela = root => root.querySelectorAll('.revela:not(.visto)').forEach(x => quieto ? x.classList.add('visto') : ver.observe(x));
+
+/* Proyectos: el panel lateral sigue a la tarjeta que está al centro */
+const nombreArea = Object.fromEntries(D.areas.map(a => [a.id, a.nombre]));
+let area = 'todos', visibles = [];
+function pintaAreas(){
+  const n = id => id === 'todos' ? D.destacados.length : D.destacados.filter(p => p.areas.includes(id)).length;
+  $('areas').innerHTML = [{id:'todos', nombre:'Todas las áreas'}, ...D.areas].map(a =>
+    `<button type="button" aria-pressed="${a.id === area}" data-id="${a.id}"><span>${esc(a.nombre)}</span><small>${n(a.id)}</small></button>`).join('');
+  $('areas').querySelectorAll('button').forEach(b => b.onclick = () => {
+    area = b.dataset.id; pintaAreas(); pintaProyectos();
+    const y = $('proyectos').offsetTop - 56; if (scrollY > y) scrollTo({top: y});
+  });
+}
+const foco = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) enfoca(+x.target.dataset.k); }), {rootMargin: '-42% 0px -52% 0px'});
+function enfoca(k){
+  const p = visibles[k]; if (!p) return;
+  document.querySelectorAll('#lista-proyectos .card').forEach((c, j) => c.classList.toggle('foco', j === k));
+  $('g-nombre').textContent = p.grupo; $('g-desc').textContent = D.grupos[p.grupo] || '';
+  $('g-num').textContent = dos(k + 1);
+  $('i-nombre').textContent = p.grupo; $('i-num').textContent = `${dos(k + 1)} / ${dos(visibles.length)}`;
+  $('areas').querySelectorAll('button').forEach(b => b.classList.toggle('tiene', p.areas.includes(b.dataset.id)));
+}
+function pintaProyectos(){
+  visibles = D.destacados.filter(p => area === 'todos' || p.areas.includes(area));
+  foco.disconnect();
+  $('lista-proyectos').innerHTML = visibles.map((p, k) => `<article class="card revela" data-k="${k}">
+    <div class="g etq">${esc(p.grupo)}</div>
+    <h3>${esc(p.titulo)}</h3>
+    <div class="ent">${esc(p.entidad)}</div>
+    ${p.periodo ? `<div class="per">${esc(p.periodo)}</div>` : ''}
+    <p>${esc(p.texto)}</p>
+    ${p.puntos ? `<ul>${p.puntos.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+    <div class="tags">${p.areas.map(a => `<span class="tag">${esc(nombreArea[a])}</span>`).join('')}</div>
+  </article>`).join('');
+  $('g-total').textContent = dos(visibles.length);
+  document.querySelectorAll('#lista-proyectos .card').forEach(c => foco.observe(c));
+  observaRevela($('lista-proyectos'));
+  enfoca(0);
+}
+pintaAreas(); pintaProyectos();
+
+/* Portafolio por tipo */
+const defs = {
+  'Todos': 'Todos los instrumentos, estudios y monitoreos registrados.',
+  'DIA': 'Declaración de Impacto Ambiental (categoría I del SEIA).',
+  'EIA': 'Estudio de Impacto Ambiental.',
+  'EVAP': 'Evaluación Ambiental Preliminar, para la clasificación del proyecto.',
+  'FITSA': 'Ficha Técnica Socio Ambiental, para proyectos viales menores.',
+  'FTA': 'Ficha Técnica Ambiental.',
+  'ITS': 'Informe Técnico Sustentatorio, para modificar un instrumento aprobado.',
+  'IGA': 'Informe de Gestión Ambiental, incluido el IGAPRO de proyectos de riego.',
+  'PAMA': 'Programa de Adecuación y Manejo Ambiental, instrumento correctivo.',
+  'IGAFOM': 'Instrumento de Gestión Ambiental para la Formalización de Actividades de Pequeña Minería y Minería Artesanal.',
+  'SEIA': 'Especialista ambiental en el marco del SEIA para obras de Provías Descentralizado.',
+  'Preinversión': 'Componente ambiental de estudios de preinversión pública.',
+  'Residuos': 'Gestión y manejo de residuos sólidos.',
+  'Remediación': 'Planes de remediación y mitigación de sitios afectados.',
+  'Auditoría': 'Auditorías ambientales.',
+  'Monitoreo': 'Monitoreos de calidad ambiental y monitoreos participativos.'
+};
+const tipos = ['Todos', ...new Set(D.portafolio.map(x => x.tipo))];
+let tipo = 'Todos', completo = false;
+function pintaPortafolio(){
+  const cuenta = t => t === 'Todos' ? D.portafolio.length : D.portafolio.filter(x => x.tipo === t).length;
+  $('tabs').innerHTML = tipos.map(t => `<button type="button" role="tab" aria-selected="${t === tipo}" data-t="${esc(t)}">${esc(t)}<b>${cuenta(t)}</b></button>`).join('');
+  $('tabs').querySelectorAll('button').forEach(b => b.onclick = () => { tipo = b.dataset.t; pintaPortafolio(); });
+  $('def').textContent = defs[tipo] || '';
+  const filas = D.portafolio.filter(x => tipo === 'Todos' || x.tipo === tipo)
+    .sort((a, b) => b.anio.slice(-4).localeCompare(a.anio.slice(-4)));
+  const corto = tipo === 'Todos' && !completo && filas.length > 12;
+  $('lista-port').innerHTML = (corto ? filas.slice(0, 12) : filas).map(x => `<div class="fila"><span class="a">${esc(x.anio)}</span><span><span class="n">${esc(x.nombre)}</span><span class="l">${esc(x.lugar)}</span></span><span class="t">${esc(x.tipo)}</span></div>`).join('') +
+    (corto ? `<div class="fila mas"><button type="button" id="ver-todo">Ver los ${filas.length} registros</button></div>` : '');
+  if (corto) $('ver-todo').onclick = () => { completo = true; pintaPortafolio(); };
+}
+pintaPortafolio();
+
+/* Trayectoria con año fijo */
+const hito = (h, k) => `<div class="hito revela${h.periodo.includes('actualidad') ? ' actual' : ''}" data-k="${k}"><span class="p">${esc(h.periodo)}</span><b>${esc(h.cargo)}</b><span class="e">${esc(h.entidad)}</span><span class="x">${esc(h.nota)}</span></div>`;
+const L = D.linea.map((h, k) => ({...h, k}));
+$('linea').innerHTML = L.filter(h => !h.antiguo).map(h => hito(h, h.k)).join('');
+$('linea2').innerHTML = L.filter(h => h.antiguo).map(h => hito(h, h.k)).join('');
+function enfocaHito(k){
+  const h = D.linea[k];
+  document.querySelectorAll('.hito').forEach(x => x.classList.toggle('foco', +x.dataset.k === k));
+  $('t-anio').textContent = h.periodo.replace(/ · actualidad/, '').split(' · ')[0];
+  $('t-cargo').textContent = h.cargo; $('t-ent').textContent = h.entidad;
+}
+const fh = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) enfocaHito(+x.target.dataset.k); }), {rootMargin: '-40% 0px -55% 0px'});
+document.querySelectorAll('.hito').forEach(x => fh.observe(x));
+enfocaHito(0);
+
+$('inst').innerHTML = Object.entries(D.instituciones).map(([k, v]) => `<div class="caja"><h3>${esc(k)}</h3><div class="chips">${v.map(x => `<span>${esc(x)}</span>`).join('')}</div></div>`).join('');
+$('grados').innerHTML = D.formacion.map(f => `<div class="item"><b>${esc(f.titulo)}</b><span>${esc(f.lugar)} · ${esc(f.fecha)}</span></div>`).join('');
+$('registros').innerHTML = D.registros.map(r => `<div class="item"><b>${esc(r.titulo)}</b><span>${esc(r.texto)}</span></div>`).join('');
+const filaCap = c => `<div class="fila"><span class="a">${esc(c.f)}</span><span><span class="n">${esc(c.t)}</span><span class="l">${esc(c.l)}${c.h ? ' · ' + esc(c.h) : ''}</span></span></div>`;
+const resto = D.capacitacion.filter(c => !c.clave);
+$('cap').innerHTML = D.capacitacion.filter(c => c.clave).map(filaCap).join('');
+$('cap2').innerHTML = resto.map(filaCap).join('');
+$('cap-sum').textContent = `Ver ${resto.length} cursos más`;
+$('pon').innerHTML = D.ponencias.map(p => `<div class="item"><b>${esc(p.t)}</b><span>${esc(p.l)}${p.f ? ' · ' + esc(p.f) : ''}</span></div>`).join('');
+$('herr').innerHTML = D.herramientas.map(x => `<span>${esc(x)}</span>`).join('');
+$('idio').innerHTML = D.idiomas.map(x => `<span>${esc(x)}</span>`).join('');
+const [y, m, d] = D.actualizado.split('-');
+$('act').textContent = `${+d} de ${['enero','febrero','marzo','abril','mayo','junio','julio','agosto','setiembre','octubre','noviembre','diciembre'][m - 1]} de ${y}`;
+observaRevela(document);
+
+/* Menú: resalta la sección en pantalla */
+const enlaces = [...document.querySelectorAll('.top nav a')];
+const fs = new IntersectionObserver(es => es.forEach(x => {
+  if (x.isIntersecting) enlaces.forEach(a => a.classList.toggle('aqui', a.hash === '#' + x.target.id));
+}), {rootMargin: '-45% 0px -50% 0px'});
+enlaces.forEach(a => { const s = document.querySelector(a.hash); if (s) fs.observe(s); });
+
+/* Impresión: todo visible, sin filtros */
+addEventListener('beforeprint', () => {
+  area = 'todos'; tipo = 'Todos'; completo = true; pintaAreas(); pintaProyectos(); pintaPortafolio();
+  document.querySelectorAll('details').forEach(x => x.open = true);
+  document.querySelectorAll('.revela').forEach(x => x.classList.add('visto'));
+});
+
+/* Tema claro u oscuro */
+try { const t = localStorage.getItem('tema'); if (t) raiz.dataset.theme = t; } catch (e) {}
+$('tema').onclick = () => {
+  const oscuro = raiz.dataset.theme ? raiz.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  raiz.dataset.theme = oscuro ? 'light' : 'dark';
+  try { localStorage.setItem('tema', raiz.dataset.theme); } catch (e) {}
+};
+pintaEscenas();
+</script>
+</body>
+</html>
