@@ -1,0 +1,993 @@
+{
+ "nota": "Índice único de sustento. Generado por sustento/generar_indice.py desde la matriz codificada (Ayuda Memoria_CV.xlsx).",
+ "indice_comp": {
+  "archivo": "capacitacion/Certificados_complementarios.pdf",
+  "items": [
+   "Remediación de suelos (CELAEP)",
+   "Habilidades directivas y gerencia de personas, 6 h; Gestión integral del riesgo, 12 h (SGS Academy)",
+   "Lineamientos técnicos en gestión prospectiva y correctiva (CENEPRED)",
+   "Gestión ambiental, 240 h (IUCT); Seguridad, salud ocupacional y medio ambiente, 240 h (IUCT)",
+   "Monitoreo ambiental; Seguridad y salud ocupacional; Seguridad y salud en el trabajo (LatamSST)",
+   "ArcGIS aplicado a la elaboración de mapas (SETMING); ArcGIS Online Basics (Esri)",
+   "Conferencias de geomática: topografía con RPAS, análisis hidrológico, teledetección, modelo digital de elevación, análisis espacial vectorial, teledetección forestal con R",
+   "Delimitación y codificación de cuencas con ArcGIS (HelpGIS)",
+   "Gestión de proyectos PMI, 34 h (UPN, 2016)",
+   "Código ético y política anticorrupción; Derechos humanos; Libre competencia (OHLA, 2 h cada uno)",
+   "Conducta responsable en investigación, 8 h (Quipu)"
+  ]
+ },
+ "grupos": [
+  {
+   "id": "formacion",
+   "titulo": "Formación y registros",
+   "filas": [
+    {
+     "t": "Título de Maestría, Gestión Ambiental",
+     "l": "Universidad Nacional de Cajamarca",
+     "p": "ago. 2023",
+     "d": [
+      [
+       "Constancia SUNEDU",
+       "formacion/Grado_Maestro_UNC.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Título en Ingeniería, Ingeniería Ambiental",
+     "l": "Universidad Privada del Norte",
+     "p": "jul. 2018",
+     "d": [
+      [
+       "Constancia SUNEDU",
+       "formacion/Titulo_Ingeniero_Ambiental_UPN.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Bachiller en Ingeniería, Ingeniería Ambiental",
+     "l": "Universidad Privada del Norte",
+     "p": "oct. 2017",
+     "d": [
+      [
+       "Constancia SUNEDU",
+       "formacion/Grado_Bachiller_UPN.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Colegiatura profesional, CIP N° 219814",
+     "l": "Colegio de Ingenieros del Perú, Consejo Departamental de Cajamarca",
+     "p": "nov. 2018",
+     "d": [
+      [
+       "Constancia de colegiatura",
+       "registros/CIP_Colegiatura.pdf"
+      ],
+      [
+       "Certificado de habilidad 2027",
+       "registros/CIP_Habilidad_2027.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Registro Nacional de Consultoras Ambientales, RNC-00218-2023",
+     "l": "SENACE",
+     "p": "may. 2023",
+     "d": [
+      [
+       "Ficha de registro SENACE",
+       "registros/SENACE_RNC-00218-2023.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Inglés",
+     "l": "Universidad Privada del Norte",
+     "p": "2016",
+     "d": [
+      [
+       "Constancia",
+       "formacion/Ingles_UPN.pdf"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "laboral",
+   "titulo": "Experiencia laboral",
+   "filas": [
+    {
+     "c": "A-31 y A-32",
+     "t": "Ministerio de Transportes y Comunicaciones",
+     "l": "Servicio de asesoramiento y coordinación técnica, Dirección de Gestión Ambiental",
+     "p": "feb. 2026 – set. 2026",
+     "d": [
+      [
+       "Constancia de prestación N° 2669-2026",
+       "experiencia/MTC_Constancia_A-31-32.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-26",
+     "t": "CEORZA S.A.C.",
+     "l": "Especialista Ambiental",
+     "p": "mar. 2018 – actualidad",
+     "d": [
+      [
+       "Constancia de trabajo, oct. 2026",
+       "experiencia/CEORZA_Constancia_de_trabajo_2026-10.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-30",
+     "t": "Ministerio de Transportes y Comunicaciones",
+     "l": "Servicio de asesoramiento y coordinación técnica, Dirección de Gestión Ambiental",
+     "p": "nov. 2025 – ene. 2026",
+     "d": [
+      [
+       "Constancia de prestación N° 1287-2026",
+       "experiencia/MTC_Constancia_A-30.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-29",
+     "t": "Ministerio de Transportes y Comunicaciones",
+     "l": "Servicio de asesoramiento y coordinación técnica, Dirección de Gestión Ambiental",
+     "p": "jul. 2025 – oct. 2025",
+     "d": [
+      [
+       "Constancia de prestación N° 3570-2025",
+       "experiencia/MTC_Constancia_A-29.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-28",
+     "t": "Ministerio de Transportes y Comunicaciones",
+     "l": "Servicio de asesoramiento y coordinación técnica, Dirección de Gestión Ambiental",
+     "p": "feb. 2025 – jun. 2025",
+     "d": [
+      [
+       "Constancia de prestación N° 2353-2025",
+       "experiencia/MTC_Constancia_A-28.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-24",
+     "t": "Ministerio de Transportes y Comunicaciones",
+     "l": "Servicio de asesoramiento y coordinación técnica, Dirección de Gestión Ambiental",
+     "p": "mar. 2024 – ene. 2025",
+     "d": [
+      [
+       "Constancia de prestación N° 1022-2025",
+       "experiencia/MTC_Constancia_A-24.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-25",
+     "t": "Obrascon Huarte Lain S.A. Sucursal del Perú",
+     "l": "Supervisor de Medio Ambiente",
+     "p": "oct. 2023 – jun. 2024",
+     "d": [
+      [
+       "Certificado de trabajo",
+       "experiencia/OHLA_Certificado_de_trabajo_2024-06.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-21",
+     "t": "Municipalidad Distrital de Chilete",
+     "l": "Especialista Ambiental",
+     "p": "set. 2023 – nov. 2023",
+     "d": [
+      [
+       "Certificado de trabajo",
+       "experiencia/MD-Chilete_Certificado_de_trabajo.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-20",
+     "t": "Gerencia Regional de Agricultura La Libertad",
+     "l": "Especialista Ambiental",
+     "p": "nov. 2022 – dic. 2022",
+     "d": [
+      [
+       "Conformidad, Oficio 143-2022",
+       "experiencia/GRA-LaLibertad_Conformidad_Oficio-143-2022.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-18",
+     "t": "Gerencia Regional de Agricultura La Libertad",
+     "l": "Especialista Ambiental",
+     "p": "may. 2022 – jun. 2022",
+     "d": [
+      [
+       "Conformidad, Oficio 118-2022",
+       "experiencia/GRA-LaLibertad_Conformidad_Oficio-118-2022.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-16",
+     "t": "JELCH Ingenieros E.I.R.L.",
+     "l": "Especialista Ambiental",
+     "p": "dic. 2020 – feb. 2022",
+     "d": [
+      [
+       "Certificado de trabajo",
+       "experiencia/JELCH_Certificado_de_trabajo.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-15",
+     "t": "Organismo de Evaluación y Fiscalización Ambiental (OEFA)",
+     "l": "Supervisor / Fiscalizador",
+     "p": "nov. 2021 – dic. 2021",
+     "d": [
+      [
+       "Constancia N° 274-2025-OEFA",
+       "experiencia/OEFA_Constancia_274-2025.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-13",
+     "t": "Municipalidad Distrital de Cochabamba - Huánuco",
+     "l": "Especialista Ambiental",
+     "p": "may. 2021 – jun. 2021",
+     "d": [
+      [
+       "Constancia de trabajo",
+       "experiencia/MD-Cochabamba_Constancia_de_trabajo.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-12",
+     "t": "Municipalidad Provincial de Santa Cruz",
+     "l": "Consultor Ambiental",
+     "p": "ene. 2021",
+     "d": [
+      [
+       "Certificado de trabajo",
+       "experiencia/MP-SantaCruz_Certificado_2.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-11",
+     "t": "Municipalidad Provincial de Santa Cruz",
+     "l": "Consultor Ambiental",
+     "p": "dic. 2020 – ene. 2021",
+     "d": [
+      [
+       "Certificado de trabajo",
+       "experiencia/MP-SantaCruz_Certificado_1.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-10",
+     "t": "Empresa de Transportes N&V S.A.C.",
+     "l": "Especialista Ambiental",
+     "p": "jul. 2020 – dic. 2020",
+     "d": [
+      [
+       "Certificado de trabajo",
+       "experiencia/TransportesNyV_Certificado_de_trabajo.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-09",
+     "t": "Soluciones Ambientales Perú E.I.R.L.",
+     "l": "Coordinador Técnico",
+     "p": "may. 2020 – jul. 2020",
+     "d": [
+      [
+       "Certificado de trabajo",
+       "experiencia/SolucionesAmbientalesPeru_Certificado_de_trabajo.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-08",
+     "t": "Dirección Ejecutiva de Salud Ambiental Cajamarca (DESA)",
+     "l": "Especialista en Impacto Ambiental",
+     "p": "may. 2020 – jun. 2020",
+     "d": [
+      [
+       "Conformidad de prestación",
+       "experiencia/DESA-Cajamarca_Conformidad_de_prestacion_2020-06.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-07",
+     "t": "Concesionaria Vial Sierra Norte SA",
+     "l": "Ingeniero de Medio Ambiente",
+     "p": "oct. 2018 – set. 2019",
+     "d": [
+      [
+       "Certificado de trabajo",
+       "experiencia/ConcesionariaVialSierraNorte_Certificado_de_trabajo.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-06",
+     "t": "Consorcio Los Andes",
+     "l": "Especialista Ambiental",
+     "p": "jun. 2018 – set. 2018",
+     "d": [
+      [
+       "Certificado de trabajo",
+       "experiencia/ConsorcioLosAndes_Certificado_de_trabajo.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-05",
+     "t": "Provías Nacional",
+     "l": "Asistente en Seguridad y Medio Ambiente",
+     "p": "feb. 2018 – jun. 2018",
+     "d": [
+      [
+       "Constancia de prestación N° 089-2025",
+       "experiencia/ProviasNacional_Constancia_A-05.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-04",
+     "t": "Provías Nacional",
+     "l": "Asistente en Seguridad y Medio Ambiente",
+     "p": "set. 2017 – dic. 2017",
+     "d": [
+      [
+       "Constancia de prestación N° 088-2025",
+       "experiencia/ProviasNacional_Constancia_A-04.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-03",
+     "t": "Ecocel Soluciones Ambientales S.A.C.",
+     "l": "Asistente Ambiental",
+     "p": "mar. 2017 – jul. 2017",
+     "d": [
+      [
+       "Certificado de trabajo",
+       "experiencia/Ecocel_Certificado_de_trabajo.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-02",
+     "t": "Consorcio Cantoon Rejali",
+     "l": "Asistente en Seguridad y Medio Ambiente",
+     "p": "set. 2016 – feb. 2017",
+     "d": [
+      [
+       "Certificado de trabajo",
+       "experiencia/ConsorcioCantoonRejali_Certificado_de_trabajo.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "A-01",
+     "t": "Dirección Regional de Energía y Minas (DREM) Cajamarca",
+     "l": "Practicante Pre Profesional",
+     "p": "abr. 2016 – jul. 2016",
+     "d": [
+      [
+       "Constancia de prácticas",
+       "experiencia/DREM-Cajamarca_Certificado.pdf"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "consultoria",
+   "titulo": "Consultoría",
+   "filas": [
+    {
+     "c": "C-21",
+     "t": "Inversiones ADRI Contratistas E.I.R.L.",
+     "l": "Declaración de Impacto Ambiental (DIA) - estación de servicio, gasocentro y GNV · E2 Consultoría Integral S.A.C.",
+     "p": "feb. 2025",
+     "d": [
+      [
+       "Constancia de prestación de servicios",
+       "experiencia/InversionesADRI_Constancia_DIA_2025-02.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "C-08 a C-17",
+     "t": "CEORZA S.A.C., IGA y proyectos ambientales",
+     "l": "IGAFOM, DIA, EVAP, ITS e informes de forestación y captura de carbono (relación en el anexo de la constancia)",
+     "p": "ago. 2019 – mar. 2024",
+     "d": [
+      [
+       "Constancia CEORZA con relación de IGA",
+       "experiencia/CEORZA_Constancia_de_trabajo_2026-10.pdf"
+      ],
+      [
+       "Certificados de titulares mineros (IGAFOM)",
+       "experiencia/IGAFOM_Certificados_de_titulares_mineros.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "C-23",
+     "t": "Huachipa y Ate (Lima)",
+     "l": "Auditoría ambiental (visita de campo) · GREATS GROUP E.I.R.L.",
+     "p": "ago. 2025",
+     "d": [
+      [
+       "Orden de servicio",
+       "experiencia/OrdenServicio_AuditoriaAmbiental_GREATS_2025-07.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "C-19",
+     "t": "Grifo para venta de combustibles líquidos, C.P. Curilcas, Pacaipampa (Ayabaca, Piura)",
+     "l": "Revisión del informe para la aprobación de la DIA y elaboración de informe técnico favorable · Corporación García E.I.R.L.",
+     "p": "",
+     "d": [
+      [
+       "Contrato",
+       "experiencia/Contrato_DIA_GrifoCurilcas_2023.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "C-18",
+     "t": "Red primaria y secundaria, Barrio San Francisco, sector El Arbolito (Huancabamba, Piura), CUI 2502489",
+     "l": "Evaluación Ambiental Preliminar (EVAP) · Víctor Rodríguez Tineo",
+     "p": "ene. 2024 – None",
+     "d": [
+      [
+       "Contrato",
+       "experiencia/Contrato_EVAP_ElArbolito_2024-01.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "C-07",
+     "t": "Puente Modular Nuevo Edén (Ucayali)",
+     "l": "Especialista Ambiental en el marco del SEIA · PROVIAS DESCENTRALIZADO",
+     "p": "nov. 2020 – dic. 2020",
+     "d": [
+      [
+       "Certificado de trabajo",
+       "experiencia/ProviasDescentralizado_FITSA_NuevoEden_2020-12.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "C-06",
+     "t": "Puente Modular Kaquencora (Puno)",
+     "l": "Especialista Ambiental en el marco del SEIA · PROVIAS DESCENTRALIZADO",
+     "p": "set. 2020 – oct. 2020",
+     "d": [
+      [
+       "Certificado de trabajo",
+       "experiencia/ProviasDescentralizado_FITSA_Kaquencora_2020-10.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "C-05",
+     "t": "Puente Modular Fundición (Puno)",
+     "l": "Especialista Ambiental en el marco del SEIA · PROVIAS DESCENTRALIZADO",
+     "p": "ago. 2020 – oct. 2020",
+     "d": [
+      [
+       "Certificado de trabajo",
+       "experiencia/ProviasDescentralizado_FITSA_Fundicion_2020-10.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "C-04",
+     "t": "Puente Modular Consuelo (Huánuco)",
+     "l": "FITSA + Informe de compatibilidad ANP · PROVIAS DESCENTRALIZADO",
+     "p": "ago. 2020 – set. 2020",
+     "d": [
+      [
+       "Certificado de trabajo",
+       "experiencia/ProviasDescentralizado_FITSA_Consuelo_2020-09.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "C-03",
+     "t": "Puente Modular Los Olivos (Huánuco)",
+     "l": "FITSA + Informe de compatibilidad ANP · PROVIAS DESCENTRALIZADO",
+     "p": "ago. 2020 – set. 2020",
+     "d": [
+      [
+       "Certificado de trabajo",
+       "experiencia/ProviasDescentralizado_FITSA_LosOlivos_2020-09.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "C-02",
+     "t": "Construcción de la 3.ª etapa de la planta de tratamiento y disposición final de residuos sólidos municipales",
+     "l": "Especialista Ambiental · VyP Ingenieros Consultores S.A.C.",
+     "p": "dic. 2019 – feb. 2020",
+     "d": [
+      [
+       "Certificado de trabajo",
+       "experiencia/VyP_Certificado_PlantaResiduosSolidos_2020-02.pdf"
+      ]
+     ]
+    },
+    {
+     "c": "C-01",
+     "t": "Puente Modular Mishca, distr. y prov. Huancabamba (Piura)",
+     "l": "Especialista Ambiental en el marco del SEIA · PROVIAS DESCENTRALIZADO (Consultor de obras Ing. J. Almagro Huamán I.)",
+     "p": "ago. 2019 – nov. 2019",
+     "d": [
+      [
+       "Certificado de trabajo",
+       "experiencia/ProviasDescentralizado_FITSA_Mishca_2019-11.pdf"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "capacitacion",
+   "titulo": "Capacitación",
+   "filas": [
+    {
+     "t": "Google Earth Engine con Python, Google Colab e Inteligencia Artificial - Nivel completo",
+     "l": "Geomática Perú (info@geomatica.pe) · Curso · 40 h",
+     "p": "jul. 2026",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2026-07_GeomaticaPeru_GEE-Python-IA_40h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "AI Fluency: Framework & Foundations",
+     "l": "Anthropic · Curso",
+     "p": "may. 2026",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2026-05_Anthropic_AIFluency.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Charla: Fiscalización Ambiental y Ciencia de datos",
+     "l": "OEFA, Academia de Fiscalización Ambiental · Charla · 2 h",
+     "p": "set. 2026",
+     "d": [
+      [
+       "Constancia",
+       "capacitacion/2026-09_OEFA_Charla_FiscalizacionYCienciaDeDatos_2h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Programa de Especialización en Derecho Ambiental (incluye el módulo de Fiscalización Ambiental)",
+     "l": "Universidad Continental - Escuela de Posgrado · Programa de Especialización · 192 h",
+     "p": "feb. 2025",
+     "d": [
+      [
+       "Certificado del programa",
+       "capacitacion/2025-02_Continental_DerechoAmbiental_192h.pdf"
+      ],
+      [
+       "Módulo de fiscalización",
+       "capacitacion/2024-12_Continental_ModuloFiscalizacionAmbiental_32h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Gerencia de Proyectos bajo el enfoque del PMI",
+     "l": "Project Management Institute · Programa de Especialización · 90 h",
+     "p": "oct. 2024",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2024-10_PMI-CIP_GerenciaProyectos_90h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Curso de especialización en Derecho Ambiental",
+     "l": "Ecoambiental Group - CIP · Curso · 120 h",
+     "p": "jul. 2024",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2024-07_EcoambientalCIP_DerechoAmbiental_120h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Formulación y evaluación de proyectos de cooperación internacional",
+     "l": "Fundación Universitaria del Área Andina · Curso · 48 h",
+     "p": "may. 2024",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2024-05_FUAREANDINA_CooperacionInternacional_48h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Gestión de Proyectos y Fundamentos de metodología Agile",
+     "l": "Santander Open Academy · Curso · 8 h",
+     "p": "abr. 2024",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2024-04_SantanderOpenAcademy_Agile_8h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Cálculo de huella de carbono",
+     "l": "Escuela Abierta de Desarrollo en Ingeniería y Construcción · Curso · 15 h",
+     "p": "abr. 2024",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2024-04_EADIC_HuellaCarbono_15h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Operationalizing Article 6.2 of the Paris Agreement",
+     "l": "Carbon Cooperation for Development - PNUD · Curso",
+     "p": "abr. 2024",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2024-04_PNUD_Article6-2.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Delitos ambientales con enfoque de género e interculturalidad",
+     "l": "Servicio Forestal y de Fauna Silvestre (SERFOR) · Curso · 41 h",
+     "p": "mar. 2024",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2024-03_SERFOR_DelitosAmbientales_41h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Power BI TOTAL en 14 Días - Analista de Datos Avanzado",
+     "l": "Udemy · Curso · 15.5 h",
+     "p": "feb. 2024",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2024-02_Udemy_PowerBI_15h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Monitoreo Biológico y del Servicio Ecosistémico del Carbono",
+     "l": "Centro Latinoamericano de Postgrado (CELAEP) - Colegio de Ingenieros del Perú (CIP) · Diplomado · 320 h",
+     "p": "set. 2023",
+     "d": [
+      [
+       "Constancia",
+       "capacitacion/2023-09_CELAEP_MonitoreoBiologico_constancia.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Mercados de carbono: una forma de mitigar el cambio climático",
+     "l": "Tecnológico de Monterrey (Mx) · Curso · 35 h",
+     "p": "abr. 2023",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2023-04_TecMonterrey_MercadosCarbono_35h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Estudios de Impacto Ambiental y Conflictos Sociales",
+     "l": "Centro Latinoamericano de Postgrado (CELAEP) · Curso · 144 h",
+     "p": "ene. 2023",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2023-01_CELAEP_EIA-ConflictosSociales_144h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Gestión y Manejo Integral de Residuos Sólidos",
+     "l": "Universidad Nacional de Piura - CACP Perú - CIP · Diplomado · 480 h",
+     "p": "ago. 2022",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2022-08_UNP_GestionResiduosSolidos_480h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Monitoreo de Calidad Ambiental",
+     "l": "Instituto de la Calidad Ambiental (ICA) · Curso · 90 h",
+     "p": "mar. 2022",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2022-03_ICA_MonitoreoCalidadAmbiental_90h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Cierre de Proyectos Mineros",
+     "l": "Pontificia Universidad Católica del Perú (PUCP) · Curso · 24 h",
+     "p": "set. 2021",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2021-09_PUCP_CierreProyectosMineros_24h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Instrumentos de Gestión Ambiental, Fiscalización y Gestión de Residuos en el sector Vivienda, Construcción y Saneamiento",
+     "l": "Colegio de Ingenieros del Perú - CD Cajamarca · Curso · 12 h",
+     "p": "ago. 2021",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2021-08_CIP-Cajamarca_IGA-Fiscalizacion-Residuos_12h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Profesional Líder de Gestión Ambiental - ISO 14001 (incluye ISO 14001:2015 Auditor/Lead Auditor Training Course, 40 h)",
+     "l": "SGS Academy · Curso · 58 h",
+     "p": "mar. 2021",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2021-03_SGS_AuditorLider-ISO14001_58h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Seguridad, Salud Ocupacional, Medio Ambiente y Calidad",
+     "l": "Instituto SSOMA · Diplomado · 200 h",
+     "p": "ene. 2021",
+     "d": [
+      [
+       "Diploma",
+       "capacitacion/2021_InstitutoSSOMA_SeguridadSaludOcupacionalMedioAmbienteCalidad_200h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Gestión y Manejo de Residuos Sólidos Municipales, Industriales y Hospitalarios",
+     "l": "Escuela Nacional de Estudios Ambientales (ENAM) · Diplomado · 200 h",
+     "p": "ene. 2021",
+     "d": [
+      [
+       "Diploma",
+       "capacitacion/2021_ENAM_ResiduosSolidos_200h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Formación de Consultores",
+     "l": "CUMYPE e INCUBUNT · Curso · 20 h",
+     "p": "dic. 2020",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2020_CUMYPE-INCUBUNT_FormacionConsultores_20h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Gestión Estratégica del Desarrollo de la Pequeña Minería y Minería Artesanal",
+     "l": "Centro Latinoamericano de Postgrado (CELAEP) - Facultad de Ciencias Económicas, Universidad Nacional Mayor de San Marcos · Diplomado · 528 h",
+     "p": "oct. 2020",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2020_CELAEP_PequenaMineria_528h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Peritos Ambientales",
+     "l": "Instituto de Educación Ambiental (IEA) · Curso · 12 h",
+     "p": "ago. 2020",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2020_IEA_PeritosAmbientales_12h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Biorremediación de suelos contaminados con Hidrocarburos",
+     "l": "KHUSKA SMA · Curso · 5 h",
+     "p": "jun. 2020",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2020_KHUSKA_Biorremediacion_5h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Climate Change: From Learning to Action",
+     "l": "UN CC:Learn (UNITAR, Naciones Unidas) · Curso · 8 h",
+     "p": "abr. 2020",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2020_UNCC-Learn_ClimateChange_8h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "ArcGIS nivel avanzado - Análisis multicriterio",
+     "l": "Uciency · Curso · 120 h",
+     "p": "feb. 2019",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2019_Uciency_ArcGIS-Avanzado_120h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Elaboración y Evaluación de Estudios de Impacto Ambiental",
+     "l": "Centro Latinoamericano de Postgrado (CELAEP) - Colegio de Ingenieros del Perú (CIP) · Diplomado · 528 h",
+     "p": "jun. 2018",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2018-06_CELAEP_DiplomadoEIA_528h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Monitoreo de Flora y Fauna Silvestre",
+     "l": "Centro Latinoamericano de Postgrado (CELAEP) - Colegio de Ingenieros del Perú (CIP) · Curso · 144 h",
+     "p": "feb. 2018",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2018_CELAEP-CIP_MonitoreoFloraFauna_144h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Agua y Saneamiento Rural",
+     "l": "Centro Latinoamericano de Postgrado (CELAEP) - Colegio de Ingenieros del Perú (CIP) · Curso · 144 h",
+     "p": "feb. 2018",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2018_CELAEP-CIP_AguaSaneamientoRural_144h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Gestión del Agua en Minería y Energía",
+     "l": "Centro Latinoamericano de Postgrado (CELAEP) - Universidad Nacional de Trujillo (UNT) y Autoridad Nacional del Agua (UNT) · Diplomado · 600 h",
+     "p": "ene. 2018",
+     "d": [
+      [
+       "Certificado",
+       "capacitacion/2018_CELAEP_GestionAguaMineriaEnergia_600h.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Certificados complementarios",
+     "l": "Un solo PDF con los certificados que no se listan uno a uno",
+     "p": "2016 a 2024",
+     "d": [
+      [
+       "Certificados complementarios",
+       "capacitacion/Certificados_complementarios.pdf"
+      ]
+     ],
+     "lista": [
+      "Remediación de suelos (CELAEP)",
+      "Habilidades directivas y gerencia de personas, 6 h; Gestión integral del riesgo, 12 h (SGS Academy)",
+      "Lineamientos técnicos en gestión prospectiva y correctiva (CENEPRED)",
+      "Gestión ambiental, 240 h (IUCT); Seguridad, salud ocupacional y medio ambiente, 240 h (IUCT)",
+      "Monitoreo ambiental; Seguridad y salud ocupacional; Seguridad y salud en el trabajo (LatamSST)",
+      "ArcGIS aplicado a la elaboración de mapas (SETMING); ArcGIS Online Basics (Esri)",
+      "Conferencias de geomática: topografía con RPAS, análisis hidrológico, teledetección, modelo digital de elevación, análisis espacial vectorial, teledetección forestal con R",
+      "Delimitación y codificación de cuencas con ArcGIS (HelpGIS)",
+      "Gestión de proyectos PMI, 34 h (UPN, 2016)",
+      "Código ético y política anticorrupción; Derechos humanos; Libre competencia (OHLA, 2 h cada uno)",
+      "Conducta responsable en investigación, 8 h (Quipu)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ponencias",
+   "titulo": "Ponencias y eventos",
+   "filas": [
+    {
+     "t": "Ponencia en el XIV Congreso Nacional de Estudiantes de Ingeniería Geológica (CONAEINGEO 2025)",
+     "l": "Universidad Nacional de Piura",
+     "p": "ago. 2025",
+     "d": [
+      [
+       "Certificado de ponente",
+       "ponencias/2025-08_CONAEINGEO_Ponencia.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "International Day of Forests, actividad académica conducida",
+     "l": "ICPNA Chiclayo y American Spaces",
+     "p": "mar. 2024",
+     "d": [
+      [
+       "Constancia",
+       "ponencias/2024_ICPNA_International-Day-of-Forests.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "Emprendimiento Social y Ambiental, ponencia",
+     "l": "Universidad Privada del Norte",
+     "p": "abr. 2023",
+     "d": [
+      [
+       "Certificado de ponente",
+       "ponencias/2023_UPN_Emprendimiento-Social-y-Ambiental.pdf"
+      ]
+     ]
+    },
+    {
+     "t": "I Taller de Especialización de Seguridad y Salud Ocupacional, organizador",
+     "l": "CEORZA y JML Ingenieros",
+     "p": "feb. 2019",
+     "d": [
+      [
+       "Certificado de organizador",
+       "ponencias/2019_CEORZA-JML_TallerSeguridadSalud_Organizador.pdf"
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

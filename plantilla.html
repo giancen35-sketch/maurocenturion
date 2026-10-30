@@ -179,6 +179,15 @@ summary{cursor:pointer;color:var(--titulo);font-weight:500;font-size:14.5px;padd
 .caja h3{font-size:16px;margin:0 0 12px;color:var(--ink)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chips span{background:var(--chip);border-radius:4px;padding:3px 10px;font-size:13px}
+/* Sustento documental: un solo índice, una fila por documento */
+.sust details{margin-top:14px}
+.sust summary{font-size:16px;color:var(--ink);font-weight:500}
+.sust summary b{font-weight:400;color:var(--mute);margin-left:6px;font-size:13px}
+.sust .fila{grid-template-columns:84px 1fr auto}
+.sust .fila ul{margin:6px 0 0;padding-left:18px;font-size:12.5px;color:var(--mute)}
+.sust .d{display:flex;flex-direction:column;gap:3px;align-items:flex-end;text-align:right}
+.sust .d span{font-size:13px;color:var(--titulo);white-space:nowrap}
+@media (max-width:640px){.sust .fila{grid-template-columns:1fr}.sust .d{align-items:flex-start;text-align:left}}
 .item{padding:10px 0;border-bottom:1px solid var(--line)}
 .item:last-child{border-bottom:0;padding-bottom:0}
 .item:first-of-type{padding-top:0}
@@ -265,7 +274,7 @@ footer{padding:20px 0 40px;font-size:12.5px;color:var(--mute)}
 <header class="top"><div class="wrap">
   <strong id="navnombre"></strong>
   <nav aria-label="Secciones">
-    <a href="#inicio">Inicio</a><a href="#aporte">Perfil</a><a href="#proyectos">Proyectos</a><a href="#portafolio">Instrumentos</a><a href="#trayectoria">Trayectoria</a><a href="#formacion">Formación</a><a href="#contacto">Contacto</a>
+    <a href="#inicio">Inicio</a><a href="#aporte">Perfil</a><a href="#proyectos">Proyectos</a><a href="#portafolio">Instrumentos</a><a href="#trayectoria">Trayectoria</a><a href="#formacion">Formación</a><a href="#sustento">Sustento</a><a href="#contacto">Contacto</a>
   </nav>
   <button class="tema" id="tema" aria-label="Cambiar entre modo claro y oscuro">◐</button>
 </div><div class="avance" id="avance"></div></header>
@@ -365,10 +374,16 @@ footer{padding:20px 0 40px;font-size:12.5px;color:var(--mute)}
       <div class="caja"><h3>Herramientas e idiomas</h3><div class="chips" id="herr"></div><div class="chips" id="idio" style="margin-top:12px"></div></div>
     </div>
   </div></section>
+
+  <section id="sustento" class="normal"><div class="wrap sust">
+    <h2 class="revela">Documentos de sustento</h2>
+    <p class="sub revela">Relación de los certificados, constancias, conformidades y contratos que respaldan este perfil, ordenada según los códigos de la matriz de experiencia (A, experiencia laboral; C, consultoría). Solo figura lo que cuenta con documento. Los originales se entregan a solicitud o junto con cada postulación.</p>
+    <div id="sust"></div>
+  </div></section>
 </main>
 
 <div class="cierre" id="contacto"><div class="wrap revela">
-  <div><h2>Conversemos</h2><p>Constancias, certificados y el detalle de cada proyecto se entregan a solicitud.</p></div>
+  <div><h2>Conversemos</h2><p>La relación de documentos de respaldo está en la sección Documentos de sustento; los certificados y el detalle de cada proyecto se entregan a solicitud.</p></div>
   <div class="btns" id="btns2"></div>
 </div></div>
 <footer><div class="wrap">Actualizado el <span id="act"></span>.</div></footer>
@@ -488,7 +503,7 @@ function pintaProyectos(){
     ${p.periodo ? `<div class="per">${esc(p.periodo)}</div>` : ''}
     <p>${esc(p.texto)}</p>
     ${p.puntos ? `<ul>${p.puntos.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
-    <div class="tags">${p.areas.map(a => `<span class="tag">${esc(nombreArea[a])}</span>`).join('')}</div>
+        <div class="tags">${p.areas.map(a => `<span class="tag">${esc(nombreArea[a])}</span>`).join('')}</div>
   </article>`).join('');
   $('g-total').textContent = dos(visibles.length);
   document.querySelectorAll('#lista-proyectos .card').forEach(c => foco.observe(c));
@@ -558,6 +573,15 @@ $('cap-sum').textContent = `Ver ${resto.length} cursos más`;
 $('pon').innerHTML = D.ponencias.map(p => `<div class="item"><b>${esc(p.t)}</b><span>${esc(p.l)}${p.f ? ' · ' + esc(p.f) : ''}</span></div>`).join('');
 $('herr').innerHTML = D.herramientas.map(x => `<span>${esc(x)}</span>`).join('');
 $('idio').innerHTML = D.idiomas.map(x => `<span>${esc(x)}</span>`).join('');
+/* Documentos de sustento: un solo índice, una fila por documento (datos/sustento.json) */
+(() => {
+  const enlace = d => `<span>${esc(d[0])}</span>`;
+  const fila = f => `<div class="fila"><span class="a">${esc(f.c || f.p || '')}</span><span><span class="n">${esc(f.t)}</span>${f.l ? `<span class="l">${esc(f.l)}${f.c && f.p ? ' · ' + esc(f.p) : ''}</span>` : (f.c && f.p ? `<span class="l">${esc(f.p)}</span>` : '')}${f.lista ? `<ul>${f.lista.map(i => `<li>${esc(i)}</li>`).join('')}</ul>` : ''}</span><span class="d">${f.d.map(enlace).join('')}</span></div>`;
+  const vistos = new Set();
+  D.sustento.forEach(g => g.filas.forEach(f => f.d.forEach(d => vistos.add(d[1]))));
+  $('sust').innerHTML = D.sustento.map((g, k) => `<details${k < 2 ? ' open' : ''}><summary>${esc(g.titulo)}<b>${g.filas.length} filas</b></summary><div class="lista" style="margin-top:8px">${g.filas.map(fila).join('')}</div></details>`).join('')
+    + `<p class="sub" style="margin-top:14px">${vistos.size} documentos de respaldo en poder del titular.</p>`;
+})();
 const [y, m, d] = D.actualizado.split('-');
 $('act').textContent = `${+d} de ${['enero','febrero','marzo','abril','mayo','junio','julio','agosto','setiembre','octubre','noviembre','diciembre'][m - 1]} de ${y}`;
 observaRevela(document);

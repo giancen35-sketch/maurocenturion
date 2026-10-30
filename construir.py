@@ -9,6 +9,9 @@ raiz = Path(__file__).parent
 datos = json.loads((raiz / "datos" / "cv.json").read_text(encoding="utf-8"))
 plantilla = (raiz / "plantilla.html").read_text(encoding="utf-8")
 
+# Documentos de sustento: un solo índice (datos/sustento.json, generado desde la matriz con sustento/generar_indice.py)
+datos["sustento"] = json.loads((raiz / "datos" / "sustento.json").read_text(encoding="utf-8"))["grupos"]
+
 # "</" dentro del JSON cerraría la etiqueta script
 cuerpo = json.dumps(datos, ensure_ascii=False).replace("</", "<\\/")
 salida = plantilla.replace("/*DATOS*/", cuerpo)
